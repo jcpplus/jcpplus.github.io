@@ -1,0 +1,704 @@
+<!doctype html>
+<html class="theme-next   use-motion ">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.4.3" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="js," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="步进" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.4.3" />
+
+
+
+
+
+
+<meta name="description" content="基础的针对requirejs的记录，备忘 http://anjia.github.io/2015/04/17/fe_requireJS/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="requirejs">
+<meta property="og:url" content="http://jcpplus.github.io/2015/06/20/2015-06-20-am-new-requirejs/index.html">
+<meta property="og:site_name" content="步进">
+<meta property="og:description" content="基础的针对requirejs的记录，备忘 http://anjia.github.io/2015/04/17/fe_requireJS/">
+<meta property="og:image" content="http://jcpplus.github.io/!--￼9-->/img/requirejs_base/1.png">
+<meta property="og:image" content="http://jcpplus.github.io/!--￼10-->/img/requirejs_base/2.png">
+<meta property="og:updated_time" content="2015-06-20T06:38:11.075Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="requirejs">
+<meta name="twitter:description" content="基础的针对requirejs的记录，备忘 http://anjia.github.io/2015/04/17/fe_requireJS/">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: 'hide',
+    motion: true
+  };
+</script>
+
+  <title> requirejs | 步进 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?b069d75bd24d0ef0b0f92b688089b4a7";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">步进</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">step by step in your life.</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content">
+          
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                requirejs
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2015-06-20T09:17:17+08:00" content="Jun 20 2015">
+              Jun 20 2015
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/技术/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/06/20/2015-06-20-am-new-requirejs/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/06/20/2015-06-20-am-new-requirejs/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><h1 id="解决的问题">解决的问题</h1><p>早期，所有的 JS 代码都写在一个文件里，只要加载这一个文件就可以了。后来，代码越来越多，就分成了多个文件，再依次加载。诸如：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">"1.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"2.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"3.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"4.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"5.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"6.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<p>以上代码会依次加载多个 JS 文件。但有缺点：</p>
+<p>1.加载时会阻塞浏览器渲染网页。文件越多，网页失去响应的时间就越长。<br>2.当 JS 文件间存在依赖关系时，需要人工严格保证加载的顺序。当依赖关系复杂的时候，就会难以维护。</p>
+<p>为了解决以上这两问题，requireJS 诞生了。<br>1.实现 JS 的异步加载，避免网页失去响应。<br>2.管理模块间的依赖性，便于代码的编写和维护。</p>
+<h1 id="使用">使用</h1><h2 id="主页面">主页面</h2><p>在<a href="http://requirejs.org/docs/download.html" target="_blank" rel="external">官网</a>下载requireJS的最新版本，在页面中引用它。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="doctype">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">title</span>&gt;</span>requireJS 入门小练习<span class="tag">&lt;/<span class="title">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- data-main 属性指主模块|入口模块，主模块是整个网页的入口代码，类似C语言的main()函数 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"require.js"</span> <span class="attribute">data-main</span>=<span class="value">"js/main.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>只需用 <code>script</code> 标签引入 <code>require.js</code> 即可，其他的文件模块都不再使用 <code>script</code> 标签引入</p>
+<h2 id="主模块">主模块</h2><p>主模块 main.js<br>常见的情况是主模块依赖其他模块， 这时就使用AMD 规范定义的require()函数</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">require</span>.config(&#123;</span><br><span class="line">    baseUrl: <span class="string">'js/'</span>, </span><br><span class="line">    paths: &#123;</span><br><span class="line">        jquery: <span class="string">'jquery'</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">require</span>([<span class="string">'jquery'</span>, <span class="string">'math'</span>], <span class="function"><span class="keyword">function</span>(<span class="params">$, math</span>)</span>&#123;</span><br><span class="line">    alert($().jquery);  <span class="comment">//弹框显示当前jQuery的版本</span></span><br><span class="line">    <span class="keyword">var</span> ele = math.sum(<span class="number">4</span>,<span class="number">5</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(ele);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>main.js 中有两个函数调用</p>
+<p>require.config()</p>
+<p>配置一些参数，它将会影响到 requirejs 库的一些行为。<a href="http://requirejs.org/docs/api.html#config" target="_blank" rel="external">常用的配置</a>有<code>baseUrl</code>，<code>path</code>：</p>
+<p>（1）baseUrl 来配置模块根目录：若没写-则path的路径默认是和 main.js 同层；一旦写了则是相对于 index.html；当然也可是绝对路径<br>（2）path 属性指定各个模块的加载路径：其中jquery是模块的名字，值是路径（它的根路径可由baseUrl来定义）</p>
+<p>require() 有两个参数</p>
+<p>（1）第一个参数是一个数组，表示所依赖的模块名，是字符串类型<br>（2）第二个参数是回调函数，加载的模块会以参数形式传入该函数，从而实现在回调函数内部使用这些模块<br>require() 异步加载各个模块，浏览器不会失去响应。它指定的回调函数，只有当前面的模块都加载成功后，才会运行。解决了依赖性问题。</p>
+<p>说明：</p>
+<p>如果 require.config() 里的 baseUrl<br>（1）baseUrl 没有定义，则默认是和主模块 main.js 同目录<br>（2）baseUrl 的值是空字符串’’，则默认是和主页面 index.html 同目录<br>如果 require() 里的模块名在 require.config() 的 paths 里没有定义，比如上例中的 ‘math’，则默认路径是和主模块 main.js 同目录，且默认文件名字是 模块名.js。</p>
+<p>在 require 中是以模块名字为唯一标识的。【符合预期嘛，减少相同模块的重复加载。但使用不当会造成文件的覆盖】<br>（1）主模板依赖了 jquery，如果子模块也依赖 jquery，且模块的名字和主模块里的相同，都是’jquery’，那么整个程序就只加载其中一个，且只加载一次。具体加载谁，依据依赖顺序（因为在子模块里也可以重新设置 require.config() 去配置）。此例会优先加载主模块里的 jquery。<br>（2）如果不同的子模块都用到了 cookie 插件，但 cookie 里的代码不同。在使用时，请将两个模块名字赋成不同的值，否则会造成 js 的相互覆盖。</p>
+<h2 id="其他模块">其他模块</h2><p>math.js的内容 </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">define(<span class="function"><span class="keyword">function</span>(<span class="params">$</span>)</span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">a, b</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> a+b;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        sum: sum</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>由于 requireJS 加载的模块是采用的 AMD 规范，所以要用 requireJS 来加载的模块也必须按照 AMD 的规范来写。必须采用特定的 define() 函数来定义。详情参考<a href="http://anjia.github.io/2015/04/17/fe_requireJS/#AMD模块的写法" target="_blank" rel="external">AMD模块的写法</a>。</p>
+<h1 id="运行结果">运行结果</h1><p>文件的目录结构：<br><img src="!--￼9--&gt;/img/requirejs_base/1.png" alt="rq"></p>
+<p>当我们在浏览器中打开 index.html 页面时，可以看到除了 require.js 外，main.js、jquery.js 和 math.js 也都请求了。后三个正是通过 require 请求的。</p>
+<p><img src="!--￼10--&gt;/img/requirejs_base/2.png" alt="requirejs"></p>
+<p>这是一个很简单的例子，使用 requireJS 动态加载 jquery.js 和 math.js，知识点：</p>
+<p>data-main 属性：指出主模块<br>require.config() 自定义模块的加载行为<br>require() 异步加载各个模块<br>define() 定义一个函数类型模块。requireJS 的模块可以是JS对象、函数、或其他类型（CommonJS/SeaJS则只能是JS对象）<br>说明：<br>requireJS 要求每个模块都是一个单独的 js 文件，这样，如果加载多个模块，就会发出多次 HTTP 请求，会影响网页的加载速度。所以，requireJS 提供了优化工具，当模块部署完毕后，可以用这个工具将多个模块合并在一个文件中。</p>
+<h1 id="AMD模块的写法">AMD模块的写法</h1><p>requireJS 加载的模块采用 AMD 规范，也就是模块必须按照 AMD 的规范来写，模块必须采用特定的 define() 函数来定义。</p>
+<h2 id="不依赖其他模块">不依赖其他模块</h2><p>如果一个模块不依赖其他模块，那么就可以直接定义在 define() 函数中了。比如 math.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">define(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">a, b</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> a+b;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        sum: sum</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="依赖其他模块">依赖其他模块</h2><p>如果这个模块依赖于其他模块，比如：animate.js<br>【Q.那此处的模块名，也是直接在main里定义的那些吗？还是在各自的js里再次 require.config() 会覆盖么？try下~】</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">define([<span class="string">'jquery'</span>], <span class="function"><span class="keyword">function</span>(<span class="params">$</span>)</span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">setPosition</span>(<span class="params">selector, left, top</span>)</span>&#123;</span><br><span class="line">        $(selector).css(&#123;</span><br><span class="line">            <span class="string">'position'</span>: <span class="string">'absolute'</span>,</span><br><span class="line">            <span class="string">'left'</span>: left,</span><br><span class="line">            <span class="string">'top'</span>: top</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        setPosition: setPosition</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>##jQuery<br>jQuery 从1.7后开始支持 AMD 规范，即如果jQuery作为一个 AMD 模块运行时，它的模块名是”jquery”，注意”jquery”是固定的。</p>
+<p>jQuery 中支持 AMD 的代码如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>( <span class="keyword">typeof</span> define === <span class="string">'function'</span> &amp;&amp; define.amd &amp;&amp; define.amd.jQuery )&#123;</span><br><span class="line">    define( <span class="string">"jquery"</span>, [], <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> jQuery;</span><br><span class="line">    &#125; );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>jQuery 最终向外暴露的是全局的 jQuery 和 $，即 window.jQuery = window.$ = jQuery<br>如果将 jQuery 应用在模块化开发时，其实可以不用全局的，即可以不暴露出来。需要用到 jQuery 时使用 require() 函数即可。</p>
+<h1 id="加载非规范的模块">加载非规范的模块</h1><p>理论上，requireJS 加载的模块必须是按照 AMD规范、用 define() 定义的模块。但是实际上，requireJS 也能够加载非规范的模块。这样的模块们，在用 require() 加载之前，要先用 require.config() 定义它们的一些特性。 shim 属性专门用来配置不兼容的模块。举例，underscore 和 backbone 这两个库，都没有采用 AMD 规范编写。如果要用 requireJS 加载它们的话，就必须先定义它们的特征。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">require</span>.config(</span><br><span class="line">    <span class="comment">// shim 属性专门用来配置不兼容的模块</span></span><br><span class="line">    shim: &#123;</span><br><span class="line">        <span class="string">'underscore'</span>: &#123;</span><br><span class="line">            exports: <span class="string">'_'</span>   <span class="comment">// 输出的变量名，表明这个模块外部调用时的名称</span></span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="string">'backbone'</span>: &#123;</span><br><span class="line">            deps: [<span class="string">'underscore'</span>, <span class="string">'jquery'</span>], <span class="comment">// 该模块的依赖性</span></span><br><span class="line">            exports: <span class="string">'backbone'</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>jQuery插件可以这样定义</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">require</span>.config(</span><br><span class="line">    shim: &#123;</span><br><span class="line">        <span class="string">'jquery.scroll'</span>: &#123;</span><br><span class="line">            deps: [<span class="string">'jquery'</span>],</span><br><span class="line">            exports: <span class="string">'jQuery.fn.scroll'</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<h1 id="requireJS_插件">requireJS 插件</h1><p>requireJS 还提供了一系列插件，实现特定的功能。比如：<br>domready 插件（回调函数在页面 DOM 结构加载完成后再运行）、<br>text 和 image 插件（允许 requireJS 加载文本和图片文件）、<br>json 和 mdown（用来加载 json 文件和 markdown 文件）等等。</p>
+<h1 id="参考">参考</h1><p>RequireJS 入门（一二）<br><a href="http://www.cnblogs.com/snandy/archive/2012/05/22/2513652.html" target="_blank" rel="external">http://www.cnblogs.com/snandy/archive/2012/05/22/2513652.html</a><br><a href="http://www.cnblogs.com/snandy/archive/2012/05/23/2513712.html" target="_blank" rel="external">http://www.cnblogs.com/snandy/archive/2012/05/23/2513712.html</a></p>
+<p>Javascript模块化编程（三）：require.js的用法<br><a href="http://www.ruanyifeng.com/blog/2012/11/require_js.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2012/11/require_js.html</a></p>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/js/" rel="tag">#js</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/06/18/2015-06-18/" rel="next" title="Array 小备">
+                <i class="fa fa-chevron-left"></i> Array 小备
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/06/21/2015-06-21-requirejs-resources/" rel="prev" title="常用的requirejs资源收集">
+                常用的requirejs资源收集 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+        </div>
+
+        
+
+
+        
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2015/06/20/2015-06-20-am-new-requirejs/"
+           data-title="requirejs" data-url="http://jcpplus.github.io/2015/06/20/2015-06-20-am-new-requirejs/">
+      </div>
+    
+  </div>
+
+
+      </div>
+
+      
+        
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="https://avatars1.githubusercontent.com/u/2156976?v=3&s=150" alt="Jesse" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">Jesse</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description"></p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">40</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">22</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+
+    </div>
+  </aside>
+
+
+      
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2013 - 
+  <span itemprop="copyrightYear">2015</span>
+  <span class="with-love">
+    <i class="icon-next-heart fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jesse</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"uloveapple"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+
+    
+  
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.3"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.3"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+<script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+<script type="text/javascript" src="/js/motion.js?v=0.4.3" id="motion.global"></script>
+
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.3" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    motionMiddleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+      if (CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  <script type="text/javascript" src="/js/bootstrap.js"></script>
+
+  
+  
+
+  
+  
+
+</body>
+</html>

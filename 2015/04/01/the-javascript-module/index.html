@@ -1,0 +1,703 @@
+<!doctype html>
+<html class="theme-next   use-motion ">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.4.3" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="module" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="步进" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.4.3" />
+
+
+
+
+
+
+<meta name="description" content="这其实是一篇很久的文章了，看到了，再拿出来看一看。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="了解模块化开发">
+<meta property="og:url" content="http://jcpplus.github.io/2015/04/01/the-javascript-module/index.html">
+<meta property="og:site_name" content="步进">
+<meta property="og:description" content="这其实是一篇很久的文章了，看到了，再拿出来看一看。">
+<meta property="og:updated_time" content="2015-08-29T13:41:50.229Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="了解模块化开发">
+<meta name="twitter:description" content="这其实是一篇很久的文章了，看到了，再拿出来看一看。">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: 'hide',
+    motion: true
+  };
+</script>
+
+  <title> 了解模块化开发 | 步进 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?b069d75bd24d0ef0b0f92b688089b4a7";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">步进</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">step by step in your life.</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content">
+          
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                了解模块化开发
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2015-04-01T00:00:00+08:00" content="Apr 1 2015">
+              Apr 1 2015
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/技术/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/04/01/the-javascript-module/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/04/01/the-javascript-module/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><blockquote>
+<p>原文可戳 <a href="http://heeroluo.net/article/detail/111/understand-javascript-modular-development" target="_blank" rel="external">Heero’s Blog</a></p>
+</blockquote>
+<p>小A是某个创业团队的前端工程师，负责编写项目的Javascript程序。</p>
+<h1 id="全局变量冲突">全局变量冲突</h1><p>根据自己的经验，小A先把一些常用的功能抽出来，写成函数放到一个公用文件base.js中：</p>
+<pre><code><span class="keyword">var</span> _ = {
+    $: <span class="function"><span class="keyword">function</span>(<span class="params">id</span>) </span>{ <span class="keyword">return</span> <span class="built_in">document</span>.getElementById(id); },
+    getCookie: <span class="function"><span class="keyword">function</span>(<span class="params">key</span>) </span>{ ... },
+    setCookie: <span class="function"><span class="keyword">function</span>(<span class="params">key, value</span>) </span>{ ... }
+};
+</code></pre><p>小A把这些函数都放在_对象内，以防过多的全局变量造成冲突。他告诉团队的其他成员，如果谁想使用这些函数，只要引入base.js就可以了。</p>
+<p>小C是小A的同事，他向小A反映：自己的页面引入了一个叫做underscore.js的类库，而且，这个类库也会占用<em>_</em>这个全局变量，这样一来就会跟base.js中的<em>_</em>冲突了。小A心想，underscore.js是第三方类库，估计不好改，但是base.js已经在很多页面铺开，不可能改。最后小A只好无奈地把underscore.js占用的全局变量改了。<br>此时，小A发现，<strong>把函数都放在一个名字空间内，可以减少全局变量冲突的概率，却没有解决全局变量冲突这个问题。</strong></p>
+<h1 id="依赖">依赖</h1><p>随着业务的发展，小A又编写了一系列的函数库和UI组件，比方说标签切换组件tabs.js，此组件需调用base.js以及util.js中的函数。</p>
+<p>有一天，新同事小D跟小A反映，自己已经在页面中引用了tabs.js，功能却不正常。小A一看就发现问题了，原来小D不知道tabs.js依赖于base.js以及util.js，他并没有添加这两个文件的引用。于是，他马上进行修改：</p>
+<pre><code><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"tabs.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+<span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"base.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+<span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"util.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+</code></pre><p>然而，功能还是不正常，此时小A教训小D说：“都说是依赖，那被依赖方肯定要放在依赖方之前啊”。原来小D把base.js和util.js放到tabs.js之后了。</p>
+<p>小A心想，<strong>他是作者，自然知道组件的依赖情况，但是别人就难说了，特别是新人。</strong></p>
+<p>了一段时间，小A给标签切换组件增加了功能，为了实现这个功能，tabs.js还需要调用ui.js中的函数。这时，小A发现了一个严重的问题，他需要在所有调用了tabs.js的页面上增加ui.js的引用！！！</p>
+<p>又过了一段时间，小A优化了tabs.js，这个组件已经不再依赖于util.js，所以他在所有用到tabs.js的页面中移除了util.js的引用，以提高性能。他这一修改，出大事了，测试组MM告诉他，有些页面不正常了。小A一看，恍然大悟，原来某些页面的其他功能用到了util.js中的函数，他把这个文件的引用去掉导致出错了。为了保证功能正常，他又把代码恢复了。</p>
+<p>小A又想，<strong>有没有办法在修改依赖的同时不用逐一修改页面，也不影响其他功能呢？</strong></p>
+<h1 id="模块化">模块化</h1><p>小A逛互联网的时候，无意中发现了一种新奇的模块化编码方式，可以把它之前遇到的问题全部解决。</p>
+<p>在模块化编程方式下，<strong>每个文件都是一个模块。</strong>每个模块都由一个名为<strong>define</strong>的函数创建。例如，把base.js改造成一个模块后，代码会变成这样：</p>
+<pre><code>define(<span class="function"><span class="keyword">function</span>(<span class="params">require, exports, module</span>) </span>{
+    exports.$ = <span class="function"><span class="keyword">function</span>(<span class="params">id</span>) </span>{ <span class="keyword">return</span> <span class="built_in">document</span>.getElementById(id); };
+    exports.getCookie = <span class="function"><span class="keyword">function</span>(<span class="params">key</span>) </span>{ ... };
+    exports.setCookie = <span class="function"><span class="keyword">function</span>(<span class="params">key, value</span>) </span>{ ... };
+});
+</code></pre><p>base.js向外提供的接口都被添加到<strong>exports</strong>这个对象。而exports是一个局部变量，整个模块的代码都没有占用半个全局变量。</p>
+<p>那如何调用某个模块提供的接口呢？以tabs.js为例，它要依赖于base.js和util.js：</p>
+<pre><code>define(<span class="function"><span class="keyword">function</span>(<span class="params">require, exports, module</span>) </span>{
+    <span class="keyword">var</span> _ = <span class="built_in">require</span>(<span class="string">'base.js'</span>), util = <span class="built_in">require</span>(<span class="string">'util.js'</span>);
+    <span class="keyword">var</span> div_tabs = _.$(<span class="string">'tabs'</span>);
+    <span class="comment">// .... 其他代码</span>
+});
+</code></pre><p>一个模块可以通过局部函数<strong>require</strong>获取其他模块的接口。此时，变量<em>_</em>和util都是局部变量，并且，变量名完全是受开发者控制的，如果你不喜欢<em>_</em>，那也可以用base：</p>
+<pre><code>define(<span class="function"><span class="keyword">function</span>(<span class="params">require, exports, module</span>) </span>{
+    <span class="keyword">var</span> base = <span class="built_in">require</span>(<span class="string">'base.js'</span>), util = <span class="built_in">require</span>(<span class="string">'util.js'</span>);
+    <span class="keyword">var</span> div_tabs = base.$(<span class="string">'tabs'</span>);
+    <span class="comment">// .... 其他代码</span>
+});
+</code></pre><p>一旦要移除util.js、添加ui.js，那只要修改tabs.js就可以了：</p>
+<pre><code>define(<span class="function"><span class="keyword">function</span>(<span class="params">require, exports, module</span>) </span>{
+    <span class="keyword">var</span> base = <span class="built_in">require</span>(<span class="string">'base.js'</span>), ui = <span class="built_in">require</span>(<span class="string">'ui.js'</span>);
+    <span class="keyword">var</span> div_tabs = base.$(<span class="string">'tabs'</span>);
+    <span class="comment">// .... 其他代码</span>
+});
+</code></pre><h1 id="加载器">加载器</h1><p>由于缺乏浏览器的原生支持，如果我们要用模块化的方式编码，就必须借助于一个叫做加载器（loader）的东西。</p>
+<p>目前加载器的实现有很多，比如require.js、seajs。而JRaiser类库也有自己的加载器。</p>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/02/11/write-by/" rel="next" title="test2">
+                <i class="fa fa-chevron-left"></i> test2
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/06/12/text-overflow-ellipsis/" rel="prev" title="多行文本溢出">
+                多行文本溢出 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+        </div>
+
+        
+
+
+        
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2015/04/01/the-javascript-module/"
+           data-title="了解模块化开发" data-url="http://jcpplus.github.io/2015/04/01/the-javascript-module/">
+      </div>
+    
+  </div>
+
+
+      </div>
+
+      
+        
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="https://avatars1.githubusercontent.com/u/2156976?v=3&s=150" alt="Jesse" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">Jesse</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description"></p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">40</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">22</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+
+    </div>
+  </aside>
+
+
+      
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2013 - 
+  <span itemprop="copyrightYear">2015</span>
+  <span class="with-love">
+    <i class="icon-next-heart fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jesse</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"uloveapple"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+
+    
+  
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.3"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.3"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+<script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+<script type="text/javascript" src="/js/motion.js?v=0.4.3" id="motion.global"></script>
+
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.3" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    motionMiddleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+      if (CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  <script type="text/javascript" src="/js/bootstrap.js"></script>
+
+  
+  
+
+  
+  
+
+</body>
+</html>

@@ -1,0 +1,806 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title><![CDATA[步进]]></title>
+  <subtitle><![CDATA[step by step in your life.]]></subtitle>
+  <link href="/atom.xml" rel="self"/>
+  <link href="http://jcpplus.github.io/"/>
+  <updated>2015-11-09T12:41:37.265Z</updated>
+  <id>http://jcpplus.github.io/</id>
+  
+  <author>
+    <name><![CDATA[Jesse]]></name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[hexo 升级到3.X]]></title>
+    <link href="http://jcpplus.github.io/2015/09/10/2015-09-28-gigrating-283-to-311/"/>
+    <id>http://jcpplus.github.io/2015/09/10/2015-09-28-gigrating-283-to-311/</id>
+    <published>2015-09-09T16:00:00.000Z</published>
+    <updated>2015-11-09T12:41:37.265Z</updated>
+    <content type="html"><![CDATA[<h1 id="hexo_2-8-3_升级到3-1-1">hexo 2.8.3 升级到3.1.1</h1><p>参考了官方<a href="https://github.com/hexojs/hexo/wiki/Migrating-from-2.x-to-3.0" target="_blank" rel="external">文档</a></p>
+<p>3.x的版本，有很大的变化。比如有很多命令都已经模块化</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-server --save</span><br><span class="line">$ npm install hexo-generator-index --save</span><br><span class="line">$ npm install hexo-generator-archive --save</span><br><span class="line">$ npm install hexo-generator-category --save</span><br><span class="line">$ npm install hexo-generator-tag --save</span><br><span class="line">$ npm install hexo-deployer-git --save</span><br><span class="line">$ npm install hexo-deployer-heroku --save</span><br><span class="line">$ npm install hexo-deployer-rsync --save</span><br><span class="line">$ npm install hexo-deployer-openshift --save</span><br></pre></td></tr></table></figure>
+<p>只要按着官方文档来操作一般是可以正确升级。</p>
+<a id="more"></a>
+<h1 id="hexo_d_无效">hexo d 无效</h1><p>按官方文档升级组件之后，<code>hexo s</code>, <code>hexo g</code>都是正常。当我执行 <code>hexo d</code>部署到github时，提示以下错误： </p>
+<p><code>hexo deployer not found github</code></p>
+<p>没找到github, 然后搜索找到了<a href="https://github.com/hexojs/hexo/issues/1013" target="_blank" rel="external">这个</a>解决方案.</p>
+<blockquote>
+<p>必须要将config.yml中的github修改为git才能正常deploy。</p>
+</blockquote>
+<p>再次d，ok！可以了。</p>
+<h1 id="_config-yml">_config.yml</h1><p>升级时，这个配置文件只要改上面那一点就可以。其他可以不动。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="hexo_2-8-3_升级到3-1-1">hexo 2.8.3 升级到3.1.1</h1><p>参考了官方<a href="https://github.com/hexojs/hexo/wiki/Migrating-from-2.x-to-3.0">文档</a></p>
+<p>3.x的版本，有很大的变化。比如有很多命令都已经模块化</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-server --save</span><br><span class="line">$ npm install hexo-generator-index --save</span><br><span class="line">$ npm install hexo-generator-archive --save</span><br><span class="line">$ npm install hexo-generator-category --save</span><br><span class="line">$ npm install hexo-generator-tag --save</span><br><span class="line">$ npm install hexo-deployer-git --save</span><br><span class="line">$ npm install hexo-deployer-heroku --save</span><br><span class="line">$ npm install hexo-deployer-rsync --save</span><br><span class="line">$ npm install hexo-deployer-openshift --save</span><br></pre></td></tr></table></figure>
+<p>只要按着官方文档来操作一般是可以正确升级。</p>]]>
+    
+    </summary>
+    
+      <category term="hexo" scheme="http://jcpplus.github.io/tags/hexo/"/>
+    
+      <category term="技术" scheme="http://jcpplus.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Git修改远程仓库地址]]></title>
+    <link href="http://jcpplus.github.io/2015/07/23/modify-remote-url/"/>
+    <id>http://jcpplus.github.io/2015/07/23/modify-remote-url/</id>
+    <published>2015-07-22T16:00:00.000Z</published>
+    <updated>2015-08-29T13:52:56.048Z</updated>
+    <content type="html"><![CDATA[<h1 id="git_系列教程">git 系列教程</h1><h2 id="修改远程仓库地址">修改远程仓库地址</h2><p>故事： 某天，远程系统目录有变，或者仓库服务器地址换了，本地有clone的git库，<br>那就得修改origin地址，以便能继续在原本地仓库继续push，pull。</p>
+<p><strong>在本地仓库所在目录x执行：</strong></p>
+<blockquote>
+<p>git remote set-url origin THE-NEW-ORIGIN-ADDRESS</p>
+</blockquote>
+<p>就这样。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[git这种操作性的工具，一般情况下都是有碰到不清楚的命令，才去查询。更改远程仓库地址就是其中遇到的问题之一。]]>
+    
+    </summary>
+    
+      <category term="git" scheme="http://jcpplus.github.io/tags/git/"/>
+    
+      <category term="教程" scheme="http://jcpplus.github.io/categories/%E6%95%99%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[使用fiddle调试移动端页面]]></title>
+    <link href="http://jcpplus.github.io/2015/07/21/2015-07-21-fiddle-mobile-proxy/"/>
+    <id>http://jcpplus.github.io/2015/07/21/2015-07-21-fiddle-mobile-proxy/</id>
+    <published>2015-07-20T16:00:00.000Z</published>
+    <updated>2015-08-30T11:29:44.612Z</updated>
+    <content type="html"><![CDATA[<p>fiddle是前端调试神器之一。要使用fiddle调试移动端页面，只要对fiddle做简单设置即可。</p>
+<h1 id="1">1</h1><p>Tools》》Fiddle Options<br><img src="!--￼0--&gt;/img/fiddle4/1.png" alt="进入fiddle Options"></p>
+<h1 id="2">2</h1><p>Connections，勾选<code>Allow remote computers to connect</code>,<br>可以看到端口号默认为<code>8888</code></p>
+<p><img src="!--￼1--&gt;/img/fiddle4/2.png" alt="勾选选项"></p>
+<h1 id="3">3</h1><p>设置好，保存之后 ，记得 <strong>重启</strong> fiddle。</p>
+<p>好了，结束！</p>
+<p>哦，对了。设置完了后其实是利用<em>请求重定向</em>来调试代码，</p>
+<p>##请求重定向(AutoResponder)</p>
+<p>所谓请求在我们前端就是一些基本的css，js，图片等请求，重定向是指页面请求资源文件替换成其他需要替换成的文件。</p>
+<p>比如我们现在需要调式线上一个js或者css文件等，我们可以使用fiddler捕获这个文件的请求，然后复制线上一份文件(比如JS或者css)代码放到本地，然后在本地的文件修改完后，替换线上的文件来调式，当一切都好了话，我们可以直接把代码提交到服务器上即可!<br><em>此乃利器</em></p>
+<h1 id="4">4</h1><p>没有终点~</p>
+<p>这是一些参考，一些更加高级的使用方法<br><a href="http://web.jobbole.com/82706/" target="_blank" rel="external">http://web.jobbole.com/82706/</a><br><a href="http://web.jobbole.com/82710/" target="_blank" rel="external">http://web.jobbole.com/82710/</a><br><a href="http://yujiangshui.com/multidevice-frontend-debug/" target="_blank" rel="external">移动端前端开发调试</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[fiddle是前端调试神器之一。要使用fiddle调试移动端页面，只要对fiddle做简单设置即可。]]>
+    
+    </summary>
+    
+      <category term="fiddle" scheme="http://jcpplus.github.io/tags/fiddle/"/>
+    
+      <category term="技术" scheme="http://jcpplus.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[常用的requirejs资源收集]]></title>
+    <link href="http://jcpplus.github.io/2015/06/21/2015-06-21-requirejs-resources/"/>
+    <id>http://jcpplus.github.io/2015/06/21/2015-06-21-requirejs-resources/</id>
+    <published>2015-06-20T16:00:00.000Z</published>
+    <updated>2015-06-20T06:47:26.575Z</updated>
+    <content type="html"><![CDATA[<h1 id="参考">参考</h1><h2 id="JS_的模块化编程（一、二）：通俗易懂">JS 的模块化编程（一、二）：通俗易懂</h2><p><a href="http://www.ruanyifeng.com/blog/2012/10/javascript_module.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2012/10/javascript_module.html</a><br><a href="http://www.ruanyifeng.com/blog/2012/10/asynchronous_module_definition.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2012/10/asynchronous_module_definition.html</a></p>
+<h2 id="RequireJS_和_AMD_规范">RequireJS 和 AMD 规范</h2><p><a href="http://javascript.ruanyifeng.com/tool/requirejs.html" target="_blank" rel="external">http://javascript.ruanyifeng.com/tool/requirejs.html</a></p>
+<p><a href="AMD：https://github.com/amdjs/amdjs-api/wiki/AMD">AMD：https://github.com/amdjs/amdjs-api/wiki/AMD</a><br><a href="CMD：https://github.com/seajs/seajs/issues/242">CMD：https://github.com/seajs/seajs/issues/242</a><br><a href="CommonJS：http://wiki.commonjs.org/wiki/Modules/1.1">CommonJS：http://wiki.commonjs.org/wiki/Modules/1.1</a></p>
+<h2 id="AMD_和_CMD_的讨论：">AMD 和 CMD 的讨论：</h2><p><a href="http://www.zhihu.com/question/20351507" target="_blank" rel="external">http://www.zhihu.com/question/20351507</a><br><a href="http://www.zhihu.com/question/21347409#answer-2323656" target="_blank" rel="external">http://www.zhihu.com/question/21347409#answer-2323656</a><br><a href="http://www.zhihu.com/question/20342350" target="_blank" rel="external">http://www.zhihu.com/question/20342350</a></p>
+<p><a href="http://www.douban.com/note/283566440/" target="_blank" rel="external">http://www.douban.com/note/283566440/</a><br><a href="https://www.imququ.com/post/amd-simplified-commonjs-wrapping.html" target="_blank" rel="external">https://www.imququ.com/post/amd-simplified-commonjs-wrapping.html</a></p>
+<h2 id="【译】使用_AMD、CommonJS_及_ES_Harmony_编写模块化的">【译】使用 AMD、CommonJS 及 ES Harmony 编写模块化的</h2><p><a href="JavaScript：http://justineo.github.io/singles/writing-modular-js/">JavaScript：http://justineo.github.io/singles/writing-modular-js/</a></p>
+<h2 id="JavaScript模块化开发（三）——AMD规范">JavaScript模块化开发（三）——AMD规范</h2><p><a href="http://www.feeldesignstudio.com/2013/09/javascript-module-pattern-amd/" target="_blank" rel="external">http://www.feeldesignstudio.com/2013/09/javascript-module-pattern-amd/</a></p>
+<h2 id="AMD规范：简单而优雅的动态载入JavaScript代码">AMD规范：简单而优雅的动态载入JavaScript代码</h2><p><a href="http://blog.csdn.net/dojotoolkit/article/details/6076668" target="_blank" rel="external">http://blog.csdn.net/dojotoolkit/article/details/6076668</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[requirejs的资源收集整理，还不算多]]>
+    
+    </summary>
+    
+      <category term="js" scheme="http://jcpplus.github.io/tags/js/"/>
+    
+      <category term="技术" scheme="http://jcpplus.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[requirejs]]></title>
+    <link href="http://jcpplus.github.io/2015/06/20/2015-06-20-am-new-requirejs/"/>
+    <id>http://jcpplus.github.io/2015/06/20/2015-06-20-am-new-requirejs/</id>
+    <published>2015-06-20T01:17:17.000Z</published>
+    <updated>2015-06-20T06:38:11.075Z</updated>
+    <content type="html"><![CDATA[<h1 id="解决的问题">解决的问题</h1><p>早期，所有的 JS 代码都写在一个文件里，只要加载这一个文件就可以了。后来，代码越来越多，就分成了多个文件，再依次加载。诸如：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">"1.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"2.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"3.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"4.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"5.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"6.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<p>以上代码会依次加载多个 JS 文件。但有缺点：</p>
+<p>1.加载时会阻塞浏览器渲染网页。文件越多，网页失去响应的时间就越长。<br>2.当 JS 文件间存在依赖关系时，需要人工严格保证加载的顺序。当依赖关系复杂的时候，就会难以维护。</p>
+<p>为了解决以上这两问题，requireJS 诞生了。<br>1.实现 JS 的异步加载，避免网页失去响应。<br>2.管理模块间的依赖性，便于代码的编写和维护。</p>
+<h1 id="使用">使用</h1><h2 id="主页面">主页面</h2><p>在<a href="http://requirejs.org/docs/download.html" target="_blank" rel="external">官网</a>下载requireJS的最新版本，在页面中引用它。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="doctype">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">title</span>&gt;</span>requireJS 入门小练习<span class="tag">&lt;/<span class="title">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- data-main 属性指主模块|入口模块，主模块是整个网页的入口代码，类似C语言的main()函数 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"require.js"</span> <span class="attribute">data-main</span>=<span class="value">"js/main.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>只需用 <code>script</code> 标签引入 <code>require.js</code> 即可，其他的文件模块都不再使用 <code>script</code> 标签引入</p>
+<h2 id="主模块">主模块</h2><p>主模块 main.js<br>常见的情况是主模块依赖其他模块， 这时就使用AMD 规范定义的require()函数</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">require</span>.config(&#123;</span><br><span class="line">    baseUrl: <span class="string">'js/'</span>, </span><br><span class="line">    paths: &#123;</span><br><span class="line">        jquery: <span class="string">'jquery'</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">require</span>([<span class="string">'jquery'</span>, <span class="string">'math'</span>], <span class="function"><span class="keyword">function</span>(<span class="params">$, math</span>)</span>&#123;</span><br><span class="line">    alert($().jquery);  <span class="comment">//弹框显示当前jQuery的版本</span></span><br><span class="line">    <span class="keyword">var</span> ele = math.sum(<span class="number">4</span>,<span class="number">5</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(ele);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>main.js 中有两个函数调用</p>
+<p>require.config()</p>
+<p>配置一些参数，它将会影响到 requirejs 库的一些行为。<a href="http://requirejs.org/docs/api.html#config" target="_blank" rel="external">常用的配置</a>有<code>baseUrl</code>，<code>path</code>：</p>
+<p>（1）baseUrl 来配置模块根目录：若没写-则path的路径默认是和 main.js 同层；一旦写了则是相对于 index.html；当然也可是绝对路径<br>（2）path 属性指定各个模块的加载路径：其中jquery是模块的名字，值是路径（它的根路径可由baseUrl来定义）</p>
+<p>require() 有两个参数</p>
+<p>（1）第一个参数是一个数组，表示所依赖的模块名，是字符串类型<br>（2）第二个参数是回调函数，加载的模块会以参数形式传入该函数，从而实现在回调函数内部使用这些模块<br>require() 异步加载各个模块，浏览器不会失去响应。它指定的回调函数，只有当前面的模块都加载成功后，才会运行。解决了依赖性问题。</p>
+<p>说明：</p>
+<p>如果 require.config() 里的 baseUrl<br>（1）baseUrl 没有定义，则默认是和主模块 main.js 同目录<br>（2）baseUrl 的值是空字符串’’，则默认是和主页面 index.html 同目录<br>如果 require() 里的模块名在 require.config() 的 paths 里没有定义，比如上例中的 ‘math’，则默认路径是和主模块 main.js 同目录，且默认文件名字是 模块名.js。</p>
+<p>在 require 中是以模块名字为唯一标识的。【符合预期嘛，减少相同模块的重复加载。但使用不当会造成文件的覆盖】<br>（1）主模板依赖了 jquery，如果子模块也依赖 jquery，且模块的名字和主模块里的相同，都是’jquery’，那么整个程序就只加载其中一个，且只加载一次。具体加载谁，依据依赖顺序（因为在子模块里也可以重新设置 require.config() 去配置）。此例会优先加载主模块里的 jquery。<br>（2）如果不同的子模块都用到了 cookie 插件，但 cookie 里的代码不同。在使用时，请将两个模块名字赋成不同的值，否则会造成 js 的相互覆盖。</p>
+<h2 id="其他模块">其他模块</h2><p>math.js的内容 </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">define(<span class="function"><span class="keyword">function</span>(<span class="params">$</span>)</span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">a, b</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> a+b;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        sum: sum</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>由于 requireJS 加载的模块是采用的 AMD 规范，所以要用 requireJS 来加载的模块也必须按照 AMD 的规范来写。必须采用特定的 define() 函数来定义。详情参考<a href="http://anjia.github.io/2015/04/17/fe_requireJS/#AMD模块的写法" target="_blank" rel="external">AMD模块的写法</a>。</p>
+<h1 id="运行结果">运行结果</h1><p>文件的目录结构：<br><img src="!--￼9--&gt;/img/requirejs_base/1.png" alt="rq"></p>
+<p>当我们在浏览器中打开 index.html 页面时，可以看到除了 require.js 外，main.js、jquery.js 和 math.js 也都请求了。后三个正是通过 require 请求的。</p>
+<p><img src="!--￼10--&gt;/img/requirejs_base/2.png" alt="requirejs"></p>
+<p>这是一个很简单的例子，使用 requireJS 动态加载 jquery.js 和 math.js，知识点：</p>
+<p>data-main 属性：指出主模块<br>require.config() 自定义模块的加载行为<br>require() 异步加载各个模块<br>define() 定义一个函数类型模块。requireJS 的模块可以是JS对象、函数、或其他类型（CommonJS/SeaJS则只能是JS对象）<br>说明：<br>requireJS 要求每个模块都是一个单独的 js 文件，这样，如果加载多个模块，就会发出多次 HTTP 请求，会影响网页的加载速度。所以，requireJS 提供了优化工具，当模块部署完毕后，可以用这个工具将多个模块合并在一个文件中。</p>
+<h1 id="AMD模块的写法">AMD模块的写法</h1><p>requireJS 加载的模块采用 AMD 规范，也就是模块必须按照 AMD 的规范来写，模块必须采用特定的 define() 函数来定义。</p>
+<h2 id="不依赖其他模块">不依赖其他模块</h2><p>如果一个模块不依赖其他模块，那么就可以直接定义在 define() 函数中了。比如 math.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">define(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">a, b</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> a+b;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        sum: sum</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="依赖其他模块">依赖其他模块</h2><p>如果这个模块依赖于其他模块，比如：animate.js<br>【Q.那此处的模块名，也是直接在main里定义的那些吗？还是在各自的js里再次 require.config() 会覆盖么？try下~】</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">define([<span class="string">'jquery'</span>], <span class="function"><span class="keyword">function</span>(<span class="params">$</span>)</span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">setPosition</span>(<span class="params">selector, left, top</span>)</span>&#123;</span><br><span class="line">        $(selector).css(&#123;</span><br><span class="line">            <span class="string">'position'</span>: <span class="string">'absolute'</span>,</span><br><span class="line">            <span class="string">'left'</span>: left,</span><br><span class="line">            <span class="string">'top'</span>: top</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        setPosition: setPosition</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>##jQuery<br>jQuery 从1.7后开始支持 AMD 规范，即如果jQuery作为一个 AMD 模块运行时，它的模块名是”jquery”，注意”jquery”是固定的。</p>
+<p>jQuery 中支持 AMD 的代码如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>( <span class="keyword">typeof</span> define === <span class="string">'function'</span> &amp;&amp; define.amd &amp;&amp; define.amd.jQuery )&#123;</span><br><span class="line">    define( <span class="string">"jquery"</span>, [], <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> jQuery;</span><br><span class="line">    &#125; );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>jQuery 最终向外暴露的是全局的 jQuery 和 $，即 window.jQuery = window.$ = jQuery<br>如果将 jQuery 应用在模块化开发时，其实可以不用全局的，即可以不暴露出来。需要用到 jQuery 时使用 require() 函数即可。</p>
+<h1 id="加载非规范的模块">加载非规范的模块</h1><p>理论上，requireJS 加载的模块必须是按照 AMD规范、用 define() 定义的模块。但是实际上，requireJS 也能够加载非规范的模块。这样的模块们，在用 require() 加载之前，要先用 require.config() 定义它们的一些特性。 shim 属性专门用来配置不兼容的模块。举例，underscore 和 backbone 这两个库，都没有采用 AMD 规范编写。如果要用 requireJS 加载它们的话，就必须先定义它们的特征。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">require</span>.config(</span><br><span class="line">    <span class="comment">// shim 属性专门用来配置不兼容的模块</span></span><br><span class="line">    shim: &#123;</span><br><span class="line">        <span class="string">'underscore'</span>: &#123;</span><br><span class="line">            exports: <span class="string">'_'</span>   <span class="comment">// 输出的变量名，表明这个模块外部调用时的名称</span></span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="string">'backbone'</span>: &#123;</span><br><span class="line">            deps: [<span class="string">'underscore'</span>, <span class="string">'jquery'</span>], <span class="comment">// 该模块的依赖性</span></span><br><span class="line">            exports: <span class="string">'backbone'</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>jQuery插件可以这样定义</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">require</span>.config(</span><br><span class="line">    shim: &#123;</span><br><span class="line">        <span class="string">'jquery.scroll'</span>: &#123;</span><br><span class="line">            deps: [<span class="string">'jquery'</span>],</span><br><span class="line">            exports: <span class="string">'jQuery.fn.scroll'</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<h1 id="requireJS_插件">requireJS 插件</h1><p>requireJS 还提供了一系列插件，实现特定的功能。比如：<br>domready 插件（回调函数在页面 DOM 结构加载完成后再运行）、<br>text 和 image 插件（允许 requireJS 加载文本和图片文件）、<br>json 和 mdown（用来加载 json 文件和 markdown 文件）等等。</p>
+<h1 id="参考">参考</h1><p>RequireJS 入门（一二）<br><a href="http://www.cnblogs.com/snandy/archive/2012/05/22/2513652.html" target="_blank" rel="external">http://www.cnblogs.com/snandy/archive/2012/05/22/2513652.html</a><br><a href="http://www.cnblogs.com/snandy/archive/2012/05/23/2513712.html" target="_blank" rel="external">http://www.cnblogs.com/snandy/archive/2012/05/23/2513712.html</a></p>
+<p>Javascript模块化编程（三）：require.js的用法<br><a href="http://www.ruanyifeng.com/blog/2012/11/require_js.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2012/11/require_js.html</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[基础的针对requirejs的记录，备忘 http://anjia.github.io/2015/04/17/fe_requireJS/]]>
+    
+    </summary>
+    
+      <category term="js" scheme="http://jcpplus.github.io/tags/js/"/>
+    
+      <category term="技术" scheme="http://jcpplus.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Array 小备]]></title>
+    <link href="http://jcpplus.github.io/2015/06/18/2015-06-18/"/>
+    <id>http://jcpplus.github.io/2015/06/18/2015-06-18/</id>
+    <published>2015-06-17T16:00:00.000Z</published>
+    <updated>2015-06-17T17:27:46.882Z</updated>
+    <content type="html"><![CDATA[<h1 id="数组的常用方法总结">数组的常用方法总结</h1><h2 id="一">一</h2><ul>
+<li>Array.length;<br>获取数组长度<br><img src="!--￼1--&gt;/img/about_array/a.length.png" alt="array.length"></li>
+</ul>
+<ul>
+<li>Array.join();<br>将数组以传入的字符串进行拼接，返回拼接后的字符串，默认以”,”来拼接。<br><img src="!--￼2--&gt;/img/about_array/a.join.png" alt="array.join"></li>
+</ul>
+<ul>
+<li>Array.concat();<br>可以向数组末尾添加传入的多个元素，或者是数组<br><img src="!--￼3--&gt;/img/about_array/a.concat.png" alt="array.concat"></li>
+</ul>
+<ul>
+<li>Array.slice();<br>可以复制数组的一部分，接受参数，一个为开始位置。两个参数分别指定开始和结束位置，负数则逆向的数。<br><img src="!--￼4--&gt;/img/about_array/a.slice.png" alt="array.slice"><br><img src="!--￼5--&gt;/img/about_array/a.slice1.png" alt="array.slice"></li>
+</ul>
+<ul>
+<li>Array.toString();<br>等同于Array.join(‘,’);<br><img src="!--￼6--&gt;/img/about_array/a.toString.png" alt="array.toString"></li>
+</ul>
+<ul>
+<li>Array.indexOf(index,[start]);<br>用于从开始位置(可选)查找指定的数组元素，返回其索引位置，查找不到则返回-1<br><img src="!--￼7--&gt;/img/about_array/a.indexOf.png" alt="array.indexOf"></li>
+</ul>
+<ul>
+<li>Array.lastIndexOf(index,[start]);<br>类似于indexOf方法，从尾部开始查找。</li>
+</ul>
+<h2 id="二">二</h2><ul>
+<li><p>Array.reverse()<br>将数组中的元素逆序，返回逆序的数组</p>
+</li>
+<li><p>Array.sort();<br>排列数组元素,默认安字母表顺序排列,且大写字母排在小写字母的前面,返回排列后的数组</p>
+</li>
+</ul>
+<p>排列数字 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Array.sort(function(a, b) &#123;&#10;         return a &#8211; b;&#10;  &#125;);</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>Array.splice();<br>用于在数组中插入或者删除元素，第一个参数指定删除元素的位置，第二个参数指定删除元素的个数，<br>若舍去则删除后面所有的元素，第三个及以后的元素将在指定的位置处添加进数组中。该函数将返回<br>所删除元素所组成的数组，若没有删除任何元素，则返回一个空数组。</p>
+</li>
+<li><p>Array.push();<br>向数组末尾添加一个或多个元素，并且返回数组的长度。</p>
+</li>
+<li><p>Array.pop();<br>删除数组末尾的一个元素，返回删除的元素</p>
+</li>
+<li><p>Array.unshift();<br>向数组的头部添加一个或多个元素，并返回数组长度。</p>
+</li>
+<li><p>Array.shift();<br>删除数组头部的一个元素，返回删除的元素</p>
+</li>
+</ul>
+]]></content>
+    <summary type="html">
+    <![CDATA[js中，数组的简单小结]]>
+    
+    </summary>
+    
+      <category term="Array" scheme="http://jcpplus.github.io/tags/Array/"/>
+    
+      <category term="技术" scheme="http://jcpplus.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[移动端rem适配方案]]></title>
+    <link href="http://jcpplus.github.io/2015/06/13/2015-06-13-need-gr/"/>
+    <id>http://jcpplus.github.io/2015/06/13/2015-06-13-need-gr/</id>
+    <published>2015-06-12T16:00:00.000Z</published>
+    <updated>2015-06-14T14:19:23.816Z</updated>
+    <content type="html"><![CDATA[<blockquote>
+<p><a href="http://www.w3ctech.com/topic/979" target="_blank" rel="external">http://www.w3ctech.com/topic/979</a></p>
+</blockquote>
+<h1 id="利用_rem_布局">利用 rem 布局</h1><p>依照某特定宽度设定 rem 值（即 html 的 font-size），页面任何需要弹性适配的元素，尺寸均换算为 rem 进行布局；当页面渲染时，根据页面有效宽度进行计算，调整 rem 的大小，动态缩放以达到适配的效果。利用该方案，还可以根据 devicePixelRatio 设定 initial-scale 来放大 viewport，使页面按照物理像素渲染，提升清晰度。</p>
+<h1 id="优点：">优点：</h1><ul>
+<li>清晰度高，能达到物理像素的清晰度。</li>
+<li>能解决 DPR 引起的“1像素”问题。</li>
+<li>向后兼容较好，即便屏幕宽度增加、PPI 增加该方案依旧适用。</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>适配 js 需尽可能早进入，减少（避免）viewport 变化引起的重绘。</li>
+<li>某些Android机会丢掉 rem 小数部分。</li>
+<li>需要预编译库进行单位转换。</li>
+<li>开发时，css 及 js 都以 16px 作为基数换算 rem，借助预编译库（以 scss 为例），我们设定一个动态尺寸单位 <code>$ppr: 750px/16px/1rem</code>，即 pixel per rem，任何使用弹性尺寸的地方写作：<code>width: 100px/$ppr</code>。</li>
+</ul>
+<p>动态调整 rem 的方法如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fixScreen = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> metaEl = doc.querySelector(<span class="string">'meta[name="viewport"]'</span>),</span><br><span class="line">        metaCtt = metaEl ? metaEl.content : <span class="string">''</span>,</span><br><span class="line">        matchScale = metaCtt.match(<span class="regexp">/initial\-scale=([\d\.]+)/</span>),</span><br><span class="line">        matchWidth = metaCtt.match(<span class="regexp">/width=([^,\s]+)/</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> ( !metaEl ) &#123; <span class="comment">// REM</span></span><br><span class="line">        <span class="keyword">var</span> docEl = doc.documentElement,</span><br><span class="line">            maxwidth = docEl.dataset.mw || <span class="number">750</span>, <span class="comment">// 每 dpr 最大页面宽度</span></span><br><span class="line">            dpr = isIos ? <span class="built_in">Math</span>.min(win.devicePixelRatio, <span class="number">3</span>) : <span class="number">1</span>,</span><br><span class="line">            scale = <span class="number">1</span> / dpr,</span><br><span class="line">            tid;</span><br><span class="line"></span><br><span class="line">        docEl.removeAttribute(<span class="string">'data-mw'</span>);</span><br><span class="line">        docEl.dataset.dpr = dpr;</span><br><span class="line">        metaEl = doc.createElement(<span class="string">'meta'</span>);</span><br><span class="line">        metaEl.name = <span class="string">'viewport'</span>;</span><br><span class="line">        metaEl.content = <span class="string">'initial-scale='</span> + ratio + <span class="string">',maximum-scale='</span> + ratio + <span class="string">', minimum-scale='</span> + scale;</span><br><span class="line">        docEl.firstElementChild.appendChild(metaEl);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> refreshRem = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">var</span> width = docEl.getBoundingClientRect().width;</span><br><span class="line">            <span class="keyword">if</span> (width / dpr &gt; maxwidth) &#123;</span><br><span class="line">                width = maxwidth * dpr;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">var</span> rem = width / <span class="number">16</span>;</span><br><span class="line">            docEl.style.fontSize = rem + <span class="string">'px'</span>;</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//...</span></span><br><span class="line"></span><br><span class="line">        refreshRem();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>代码实现主要参考<a href="http://m.taobao.com" target="_blank" rel="external">淘宝网触屏版</a>的适配方法，查看<a href="http://www.meow.re/demo/screen-adaptation-in-mobileweb/app-rem.html" target="_blank" rel="external">效果和代码</a>，其中 scss 的写法可以参见<a href="http://codepen.io/re54k/pen/aOoVLQ?editors=011" target="_blank" rel="external">这里</a>。</p>
+<p>注意，较小的背景图（比如一些 icon）的 background-size 不要使用具体 rem 数值，裁剪后会出现边缘丢失。应使用与元素等尺寸切图，设定 background-size: contain|cover 来缩放。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[移动端rem适配方案]]>
+    
+    </summary>
+    
+      <category term="css3" scheme="http://jcpplus.github.io/categories/css3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[多行文本溢出]]></title>
+    <link href="http://jcpplus.github.io/2015/06/12/text-overflow-ellipsis/"/>
+    <id>http://jcpplus.github.io/2015/06/12/text-overflow-ellipsis/</id>
+    <published>2015-06-11T16:00:00.000Z</published>
+    <updated>2015-08-30T11:28:29.668Z</updated>
+    <content type="html"><![CDATA[<p>大家应该都知道用<code>text-overflow:ellipsis</code>属性来实现单行文本的溢出显示省略号(<code>…</code>)。当然部分浏览器还需要加宽度<code>width</code>属性。</p>
+<pre><code><span class="rule"><span class="attribute">overflow</span>:<span class="value"> hidden</span></span>;
+<span class="rule"><span class="attribute">text-overflow</span>:<span class="value"> ellipsis</span></span>;
+<span class="rule"><span class="attribute">white-space</span>:<span class="value"> nowrap</span></span>;
+</code></pre><p>但是这个属性并不支持多行文本溢出显示省略号，这里根据应用场景介绍几个方法来实现这样的效果。</p>
+<h1 id="WebKit浏览器或移动端的页面">WebKit浏览器或移动端的页面</h1><p>在WebKit浏览器或移动端（绝大部分是WebKit内核的浏览器）的页面实现比较简单，可以直接使用WebKit的CSS扩展属性(WebKit是私有属性)<code>-webkit-line-clamp</code> ；注意：这是一个不规范的属性（<a href="http://developer.apple.com/safari/library/documentation/AppleApplications/Reference/SafariCSSRef/Articles/StandardCSSProperties.html#//apple_ref/doc/uid/TP30001266-UnsupportedProperties" target="_blank" rel="external">unsupported WebKit property</a>），它没有出现在 CSS 规范草案中。</p>
+<p><code>-webkit-line-clamp</code>用来限制在一个块元素显示的文本的行数。 为了实现该效果，它需要组合其他的WebKit属性。<br>常见结合属性：</p>
+<p><code>display: -webkit-box;</code> 必须结合的属性 ，将对象作为弹性伸缩盒子模型显示 。<br><code>-webkit-box-orient</code> 必须结合的属性 ，设置或检索伸缩盒对象的子元素的排列方式 。<br><code>text-overflow: ellipsis;</code>可以用来多行文本的情况下，用省略号“…”隐藏超出范围的文本 。</p>
+<pre><code><span class="rule"><span class="attribute">overflow </span>:<span class="value"> hidden</span></span>;
+<span class="rule"><span class="attribute">text-overflow</span>:<span class="value"> ellipsis</span></span>;
+<span class="rule"><span class="attribute">display</span>:<span class="value"> -webkit-box</span></span>;
+<span class="rule"><span class="attribute">-webkit-line-clamp</span>:<span class="value"> <span class="number">2</span></span></span>;
+<span class="rule"><span class="attribute">-webkit-box-orient</span>:<span class="value"> vertical</span></span>;
+</code></pre><p>这个属性比较合适WebKit浏览器或移动端（绝大部分是WebKit内核的）浏览器。</p>
+<p>具体例子可以看：<a href="http://www.css88.com/webkit/-webkit-line-clamp/" target="_blank" rel="external">这里</a></p>
+<h1 id="跨浏览器兼容的方案">跨浏览器兼容的方案</h1><p>比较靠谱简单的做法就是设置相对定位的容器高度，用包含省略号(…)的元素模拟实现；</p>
+<p>例如：</p>
+<pre><code><span class="tag">p</span> <span class="rules">{
+    <span class="rule"><span class="attribute">position</span>:<span class="value">relative</span></span>;
+    <span class="rule"><span class="attribute">line-height</span>:<span class="value"><span class="number">1.4em</span></span></span>;
+    <span class="comment">/* 3 times the line-height to show 3 lines */</span>
+    <span class="rule"><span class="attribute">height</span>:<span class="value"><span class="number">4.2em</span></span></span>;
+    <span class="rule"><span class="attribute">overflow</span>:<span class="value">hidden</span></span>;
+}</span>
+<span class="rule"><span class="attribute">p</span>:<span class="value">:after {
+    content:<span class="string">"..."</span></span></span>;
+    <span class="rule"><span class="attribute">font-weight</span>:<span class="value">bold</span></span>;
+    <span class="rule"><span class="attribute">position</span>:<span class="value">absolute</span></span>;
+    <span class="rule"><span class="attribute">bottom</span>:<span class="value"><span class="number">0</span></span></span>;
+    <span class="rule"><span class="attribute">right</span>:<span class="value"><span class="number">0</span></span></span>;
+    <span class="rule"><span class="attribute">padding</span>:<span class="value"><span class="number">0</span> <span class="number">20px</span> <span class="number">1px</span> <span class="number">45px</span></span></span>;
+    <span class="rule"><span class="attribute">background</span>:<span class="value"><span class="function">url</span>(http://css88.b0.upaiyun.com/css88/<span class="number">2014</span>/<span class="number">09</span>/ellipsis_bg.png) repeat-y</span></span>;
+}
+</code></pre><p>这里注意几点：</p>
+<ul>
+<li>height高度真好是<code>line-height</code>的3倍；</li>
+<li>结束的省略好用了半透明的png做了减淡的效果，或者设置背景颜色；</li>
+<li>IE6-7不显示content内容，所以要兼容IE6-7可以是在内容中加入一个标签，比如用<code>&lt;span class=&quot;line-clamp&quot;&gt;...&lt;/span&gt;</code>去模拟；</li>
+<li>要支持IE8，需要将<code>::after</code>替换成<code>:after</code>；</li>
+</ul>
+<h1 id="JavaScript_方案">JavaScript 方案</h1><p>用js也可以根据上面的思路去模拟，实现也很简单，推荐几个做类似工作的成熟小工具：</p>
+<p>1: <a href="https://github.com/BeSite/jQuery.dotdotdot" target="_blank" rel="external">jQuery.dotdotdot</a></p>
+<p>像下面这样用</p>
+<pre><code>$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{
+    $(<span class="string">"#wrapper"</span>).dotdotdot({
+        <span class="comment">//  configuration goes here</span>
+    });
+});
+</code></pre><h1 id="参考">参考</h1><p><a href="http://www.cssmojo.com/line-clamp_for_non_webkit-based_browsers/#what-can-we-do-across-browsers" target="_blank" rel="external">http://www.cssmojo.com/line-clamp_for_non_webkit-based_browsers/#what-can-we-do-across-browsers</a><br><a href="http://css-tricks.com/line-clampin/" target="_blank" rel="external">http://css-tricks.com/line-clampin/</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>大家应该都知道用<code>text-overflow:ellipsis</code>属性来实现单行文本的溢出显示省略号(<code>…</code>)。当然部分浏览器还需要加宽度<code>width</code>属性。</p>
+<pre><code><span clas]]>
+    </summary>
+    
+      <category term="css" scheme="http://jcpplus.github.io/tags/css/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[了解模块化开发]]></title>
+    <link href="http://jcpplus.github.io/2015/04/01/the-javascript-module/"/>
+    <id>http://jcpplus.github.io/2015/04/01/the-javascript-module/</id>
+    <published>2015-03-31T16:00:00.000Z</published>
+    <updated>2015-08-29T13:41:50.229Z</updated>
+    <content type="html"><![CDATA[<blockquote>
+<p>原文可戳 <a href="http://heeroluo.net/article/detail/111/understand-javascript-modular-development" target="_blank" rel="external">Heero’s Blog</a></p>
+</blockquote>
+<p>小A是某个创业团队的前端工程师，负责编写项目的Javascript程序。</p>
+<h1 id="全局变量冲突">全局变量冲突</h1><p>根据自己的经验，小A先把一些常用的功能抽出来，写成函数放到一个公用文件base.js中：</p>
+<pre><code><span class="keyword">var</span> _ = {
+    $: <span class="function"><span class="keyword">function</span>(<span class="params">id</span>) </span>{ <span class="keyword">return</span> <span class="built_in">document</span>.getElementById(id); },
+    getCookie: <span class="function"><span class="keyword">function</span>(<span class="params">key</span>) </span>{ ... },
+    setCookie: <span class="function"><span class="keyword">function</span>(<span class="params">key, value</span>) </span>{ ... }
+};
+</code></pre><p>小A把这些函数都放在_对象内，以防过多的全局变量造成冲突。他告诉团队的其他成员，如果谁想使用这些函数，只要引入base.js就可以了。</p>
+<p>小C是小A的同事，他向小A反映：自己的页面引入了一个叫做underscore.js的类库，而且，这个类库也会占用<em>_</em>这个全局变量，这样一来就会跟base.js中的<em>_</em>冲突了。小A心想，underscore.js是第三方类库，估计不好改，但是base.js已经在很多页面铺开，不可能改。最后小A只好无奈地把underscore.js占用的全局变量改了。<br>此时，小A发现，<strong>把函数都放在一个名字空间内，可以减少全局变量冲突的概率，却没有解决全局变量冲突这个问题。</strong></p>
+<h1 id="依赖">依赖</h1><p>随着业务的发展，小A又编写了一系列的函数库和UI组件，比方说标签切换组件tabs.js，此组件需调用base.js以及util.js中的函数。</p>
+<p>有一天，新同事小D跟小A反映，自己已经在页面中引用了tabs.js，功能却不正常。小A一看就发现问题了，原来小D不知道tabs.js依赖于base.js以及util.js，他并没有添加这两个文件的引用。于是，他马上进行修改：</p>
+<pre><code><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"tabs.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+<span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"base.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+<span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"util.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+</code></pre><p>然而，功能还是不正常，此时小A教训小D说：“都说是依赖，那被依赖方肯定要放在依赖方之前啊”。原来小D把base.js和util.js放到tabs.js之后了。</p>
+<p>小A心想，<strong>他是作者，自然知道组件的依赖情况，但是别人就难说了，特别是新人。</strong></p>
+<p>了一段时间，小A给标签切换组件增加了功能，为了实现这个功能，tabs.js还需要调用ui.js中的函数。这时，小A发现了一个严重的问题，他需要在所有调用了tabs.js的页面上增加ui.js的引用！！！</p>
+<p>又过了一段时间，小A优化了tabs.js，这个组件已经不再依赖于util.js，所以他在所有用到tabs.js的页面中移除了util.js的引用，以提高性能。他这一修改，出大事了，测试组MM告诉他，有些页面不正常了。小A一看，恍然大悟，原来某些页面的其他功能用到了util.js中的函数，他把这个文件的引用去掉导致出错了。为了保证功能正常，他又把代码恢复了。</p>
+<p>小A又想，<strong>有没有办法在修改依赖的同时不用逐一修改页面，也不影响其他功能呢？</strong></p>
+<h1 id="模块化">模块化</h1><p>小A逛互联网的时候，无意中发现了一种新奇的模块化编码方式，可以把它之前遇到的问题全部解决。</p>
+<p>在模块化编程方式下，<strong>每个文件都是一个模块。</strong>每个模块都由一个名为<strong>define</strong>的函数创建。例如，把base.js改造成一个模块后，代码会变成这样：</p>
+<pre><code>define(<span class="function"><span class="keyword">function</span>(<span class="params">require, exports, module</span>) </span>{
+    exports.$ = <span class="function"><span class="keyword">function</span>(<span class="params">id</span>) </span>{ <span class="keyword">return</span> <span class="built_in">document</span>.getElementById(id); };
+    exports.getCookie = <span class="function"><span class="keyword">function</span>(<span class="params">key</span>) </span>{ ... };
+    exports.setCookie = <span class="function"><span class="keyword">function</span>(<span class="params">key, value</span>) </span>{ ... };
+});
+</code></pre><p>base.js向外提供的接口都被添加到<strong>exports</strong>这个对象。而exports是一个局部变量，整个模块的代码都没有占用半个全局变量。</p>
+<p>那如何调用某个模块提供的接口呢？以tabs.js为例，它要依赖于base.js和util.js：</p>
+<pre><code>define(<span class="function"><span class="keyword">function</span>(<span class="params">require, exports, module</span>) </span>{
+    <span class="keyword">var</span> _ = <span class="built_in">require</span>(<span class="string">'base.js'</span>), util = <span class="built_in">require</span>(<span class="string">'util.js'</span>);
+    <span class="keyword">var</span> div_tabs = _.$(<span class="string">'tabs'</span>);
+    <span class="comment">// .... 其他代码</span>
+});
+</code></pre><p>一个模块可以通过局部函数<strong>require</strong>获取其他模块的接口。此时，变量<em>_</em>和util都是局部变量，并且，变量名完全是受开发者控制的，如果你不喜欢<em>_</em>，那也可以用base：</p>
+<pre><code>define(<span class="function"><span class="keyword">function</span>(<span class="params">require, exports, module</span>) </span>{
+    <span class="keyword">var</span> base = <span class="built_in">require</span>(<span class="string">'base.js'</span>), util = <span class="built_in">require</span>(<span class="string">'util.js'</span>);
+    <span class="keyword">var</span> div_tabs = base.$(<span class="string">'tabs'</span>);
+    <span class="comment">// .... 其他代码</span>
+});
+</code></pre><p>一旦要移除util.js、添加ui.js，那只要修改tabs.js就可以了：</p>
+<pre><code>define(<span class="function"><span class="keyword">function</span>(<span class="params">require, exports, module</span>) </span>{
+    <span class="keyword">var</span> base = <span class="built_in">require</span>(<span class="string">'base.js'</span>), ui = <span class="built_in">require</span>(<span class="string">'ui.js'</span>);
+    <span class="keyword">var</span> div_tabs = base.$(<span class="string">'tabs'</span>);
+    <span class="comment">// .... 其他代码</span>
+});
+</code></pre><h1 id="加载器">加载器</h1><p>由于缺乏浏览器的原生支持，如果我们要用模块化的方式编码，就必须借助于一个叫做加载器（loader）的东西。</p>
+<p>目前加载器的实现有很多，比如require.js、seajs。而JRaiser类库也有自己的加载器。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[这其实是一篇很久的文章了，看到了，再拿出来看一看。]]>
+    
+    </summary>
+    
+      <category term="技术" scheme="http://jcpplus.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[test2]]></title>
+    <link href="http://jcpplus.github.io/2015/02/11/write-by/"/>
+    <id>http://jcpplus.github.io/2015/02/11/write-by/</id>
+    <published>2015-02-11T01:17:17.000Z</published>
+    <updated>2015-05-30T10:29:12.857Z</updated>
+    <content type="html"><![CDATA[<h2 id="主题">主题</h2><p>hexo的主题今后就定下来了，就用<a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="external">next</a>这款了，不需要再多折腾。把注意力集中在内容上。感觉有点过于追求表面的东西，而忽略了内容。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h2 id="主题">主题</h2><p>hexo的主题今后就定下来了，就用<a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="external">next</a>这款了，不需要再多]]>
+    </summary>
+    
+      <category term="hexo" scheme="http://jcpplus.github.io/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[javascript]]></title>
+    <link href="http://jcpplus.github.io/2014/12/12/javascript/"/>
+    <id>http://jcpplus.github.io/2014/12/12/javascript/</id>
+    <published>2014-12-12T06:27:44.000Z</published>
+    <updated>2015-05-30T10:29:12.857Z</updated>
+    <content type="html"><![CDATA[<p>　　什么是面向对象？这是我一直苦苦追寻的问题。</p>
+<p>　　面向对象可以把程序中的关键模块都视为对象，而模块拥有属性及方法。这样我们如果把一些属性及方法封装起来，日后使用将非常方便，也可以避免繁琐重复的工作。接下来将为大家讲解在JS中面向对象的实现。</p>
+<a id="more"></a>
+<h2 id="工厂模式">工厂模式</h2><p>　　工厂模式是软件工程领域一种广为人知的设计模式，而由于在ECMAScript中无法创建类，因此用函数封装以特定接口创建对象。其实现方法非常简单，也就是 在函数内创建一个对象，给对象赋予属性及方法再将对象返回即可。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createBlog</span>(<span class="params">name, url</span>) </span>&#123;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">var</span> o = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">    o.name = name;</span><br><span class="line">    o.url = url;</span><br><span class="line">    o.sayUrl= <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        alert(<span class="keyword">this</span>.url);</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">return</span> o;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="keyword">var</span> blog1 = createBlog(<span class="string">'jesse'</span>, <span class="string">'http://jcpplus.github.io/'</span>);</span><br></pre></td></tr></table></figure></p>
+<p>　　可以看到工厂模式的实现方法非常简单，解决了创建多个相似对象的问题，但是 工厂模式却无从识别对象的类型,因为全部都是Object，不像Date、Array等，因此出现了构造函数模式。</p>
+<h2 id="构造函数模式">构造函数模式</h2><p>　　ECMAScript中构造函数可以创建特定类型的对象，类似于Array、Date等原生JS的对象。其实现方法如下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">functionBlog(name, url) &#123;</span><br><span class="line"><span class="keyword">this</span>.name =name;</span><br><span class="line"><span class="keyword">this</span>.url =url;</span><br><span class="line"><span class="keyword">this</span>.alertUrl =<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        alert(<span class="keyword">this</span>.url);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">var</span> blog = <span class="keyword">new</span> Blog(<span class="string">'jesse'</span>, <span class="string">'http://jcpplus.github.io'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(blog <span class="keyword">instanceof</span> Blog); </span><br><span class="line"><span class="comment">//true， 判断blog是否是Blog的实例，即解决了工厂模式中不能识别对象的问题</span></span><br></pre></td></tr></table></figure></p>
+<p>　　这个例子与工厂模式中除了函数名不同以外，细心的童鞋应该发现许多不同之处：<br>函数名首写字母为大写（虽然标准没有严格规定首写字母为大写，但按照惯例，构造函数的首写字母用大写没有显示的创建对象直接将属性和方法赋值给了this对象</p>
+<blockquote>
+<p>没有return语句<br>使用new创建对象<br>能够识别对象（这正是构造函数模式胜于工厂模式的地方）</p>
+</blockquote>
+<p>　　 构造函数虽然好用，但也并非没有缺点，使用构造函数的最大的问题在于每次创建实例的时候都要重新创建一次方法（理论上每次创建对象的时候对象的属性均不同，而对象的方法是相同的），然而创建两次完全相同的方法是没有必要的 ，因此，我们可以将函数移到对象外面（也许有些童鞋已经看出缺点，嘘！）。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Blog</span>(<span class="params">name, url</span>) </span>&#123; </span><br><span class="line"><span class="keyword">this</span>.name = name;</span><br><span class="line"><span class="keyword">this</span>.url = url;</span><br><span class="line"><span class="keyword">this</span>.alertUrl = alertUrl;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">alertUrl</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    alert(<span class="keyword">this</span>.url);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">var</span> blog = <span class="keyword">new</span> Blog(<span class="string">'jesse'</span>, <span class="string">'http://jcpplus.github.io'</span>),</span><br><span class="line">    blog2 = <span class="keyword">new</span> Blog(<span class="string">'cnblogs'</span>, <span class="string">'http://www.github.com'</span>);</span><br><span class="line">blog.alertUrl(); </span><br><span class="line"><span class="comment">//http://jcpplus.github.io</span></span><br><span class="line"> </span><br><span class="line">blog2.alertUrl(); </span><br><span class="line"><span class="comment">//http://www.github.com</span></span><br></pre></td></tr></table></figure></p>
+<p>　　我们将alertUrl设置成全局函数，这样一来blog与blog2访问的都是同一个函数，可是问题又来了，在全局作用域中定义了一个实际只想让Blog使用的函数，显示让全局作用域有些名副其实，更让人无法接受的是在全局作用域中定义了许多仅供特定对象使用的方法，浪费空间不说，显然失去了面向对象封装性了，因此可以通过原型来解决此问题。</p>
+<h2 id="原型模式">原型模式</h2><p>　　我们创建的每个函数都有prototype（原型）属性，这个属性是一个指针，指向一个对象，而这个对象的用途是包含可以由特定类型的所有实例共享的属性和方法。使用原型对象的好处就是可以让所有对象实例共享它所包含的属性及方法。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Blog</span>(<span class="params"></span>) </span>&#123; &#125;</span><br><span class="line"> </span><br><span class="line">Blog.prototype.name = <span class="string">'jesse'</span>;</span><br><span class="line">Blog.prototype.url = <span class="string">'http://jcpplus.github.io'</span>;</span><br><span class="line">Blog.prototype.friend = [<span class="string">'fr1'</span>, <span class="string">'fr2'</span>, <span class="string">'fr3'</span>, <span class="string">'fr4'</span>];</span><br><span class="line">Blog.prototype.alertInfo = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    alert(<span class="keyword">this</span>.name + <span class="keyword">this</span>.url + <span class="keyword">this</span>.friend );</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment">//以下为测试代码</span></span><br><span class="line"><span class="keyword">var</span> blog = <span class="keyword">new</span> Blog(),</span><br><span class="line">    blog2 = <span class="keyword">new</span> Blog();</span><br><span class="line">blog.alertInfo(); </span><br><span class="line"><span class="comment">//jesse http://jcpplus.github.iofr1,fr2,fr3,fr4</span></span><br><span class="line"> </span><br><span class="line">blog2.alertInfo(); </span><br><span class="line"><span class="comment">//jesse http://jcpplus.github.iofr1,fr2,fr3,fr4</span></span><br><span class="line"> </span><br><span class="line">blog.name = <span class="string">'wyc1'</span>;</span><br><span class="line">blog.url = <span class="string">'http://***.com'</span>;</span><br><span class="line">blog.friend.pop();</span><br><span class="line">blog2.name = <span class="string">'wyc2'</span>;</span><br><span class="line">blog2.url = <span class="string">'http://+++.com'</span>;</span><br><span class="line">blog.alertInfo(); </span><br><span class="line"><span class="comment">//wyc1http://***.comfr1,fr2,fr3</span></span><br><span class="line"> </span><br><span class="line">blog2.alertInfo(); </span><br><span class="line"><span class="comment">//wyc2http://+++.comfr1,fr2,fr3</span></span><br></pre></td></tr></table></figure></p>
+<p>　　原型模式也不是没有缺点，首先，它省略了构造函数传递初始化参数这一环节，结果所有实例在默认情况下都取得了相同的属性值，这样非常不方便，但这还是不是原型的最大问题，原型模式的最大问题在于共享的本性所导致的，由于共享，因此因此一个实例修改了引用，另一个也随之更改了引用。因此我们通常不单独使用原型，而是结合原型模式与构造函数模式。</p>
+<h2 id="混合模式（原型模式_+_构造函数模式）">混合模式（原型模式  + 构造函数模式）</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Blog</span>(<span class="params">name, url, friend</span>) </span>&#123;</span><br><span class="line"><span class="keyword">this</span>.name = name;</span><br><span class="line"><span class="keyword">this</span>.url = url;</span><br><span class="line"><span class="keyword">this</span>.friend = friend;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">Blog.prototype.alertInfo = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    alert(<span class="keyword">this</span>.name + <span class="keyword">this</span>.url + <span class="keyword">this</span>.friend);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">var</span> blog = <span class="keyword">new</span> Blog(<span class="string">'jesse'</span>, <span class="string">'http://jcpplus.github.io'</span>, [<span class="string">'fr1'</span>, <span class="string">'fr2'</span>, <span class="string">'fr3'</span>]),</span><br><span class="line">    blog2 = <span class="keyword">new</span> Blog(<span class="string">'j'</span>, <span class="string">'http://**.com'</span>, [<span class="string">'a'</span>, <span class="string">'b'</span>]);</span><br><span class="line"> </span><br><span class="line">blog.friend.pop();</span><br><span class="line">blog.alertInfo(); </span><br><span class="line"><span class="comment">//jessehttp://jcpplus.github.iofr1,fr2</span></span><br><span class="line"> </span><br><span class="line">blog2.alertInfo(); </span><br><span class="line"><span class="comment">//j http://**.coma,b</span></span><br></pre></td></tr></table></figure>
+<p>　　混合模式中构造函数模式用于定义实例属性，而原型模式用于定义方法和共享属性。每个实例都会有自己的一份实例属性，但同时又共享着方法，最大限度的节省了内存。另外这种模式还支持传递初始参数。优点甚多。这种模式在ECMAScript中是使用最广泛、认同度最高的一种创建自定义对象的方法。</p>
+<h2 id="动态原型模式">动态原型模式</h2><p>　　动态原型模式将所有信息封装在了构造函数中，而通过构造函数中初始化原型（仅第一个对象实例化时初始化原型），这个可以通过判断该方法是否有效而选择是否需要初始化原型。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Blog</span>(<span class="params">name, url</span>) </span>&#123;</span><br><span class="line"><span class="keyword">this</span>.name = name;</span><br><span class="line"><span class="keyword">this</span>.url = url;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">if</span>( <span class="keyword">typeof</span> <span class="keyword">this</span>.alertInfo != <span class="string">'function'</span>) &#123;</span><br><span class="line"><span class="comment">//这段代码只执行了一次</span></span><br><span class="line">        alert(<span class="string">'exe time'</span>);</span><br><span class="line">        Blog.prototype.alertInfo = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            alert(thia.name + <span class="keyword">this</span>.url);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">var</span> blog = <span class="keyword">new</span> Blog(<span class="string">'jesse'</span>, <span class="string">'http://www.cnblogs.com/jesse'</span>),</span><br><span class="line">    blog2 = <span class="keyword">new</span> Blog(<span class="string">'j'</span>, <span class="string">'http:***.com'</span>);</span><br></pre></td></tr></table></figure>
+<p>　　可以看到上面的例子中只弹出一次窗，’exe time’，即当blog初始化时，这样做blog2就不在需要初始化原型，对于使用这种模式创建对象，可以算是perfect了。</p>
+<p>参考《JavaScript高级程序设计》第3版。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[面向对象的javascrpit]]>
+    
+    </summary>
+    
+      <category term="javascript" scheme="http://jcpplus.github.io/tags/javascript/"/>
+    
+      <category term="技术" scheme="http://jcpplus.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[css3-flex-sample-demo]]></title>
+    <link href="http://jcpplus.github.io/2014/12/11/css3-flex-sample-demo/"/>
+    <id>http://jcpplus.github.io/2014/12/11/css3-flex-sample-demo/</id>
+    <published>2014-12-11T01:17:38.000Z</published>
+    <updated>2015-05-30T10:29:12.841Z</updated>
+    <content type="html"><![CDATA[<blockquote>
+<p>我写的东西总感觉是干瘪的很。。我尽量写的丰富多彩些。不过总体上不影响理解的哈哈哈.<br>css兼容性前缀用后处理器来解决。autoprefixer</p>
+</blockquote>
+<p>直接进入正题了，不说废话。</p>
+<h2 id="1">1</h2><p><code>div.flex-box&gt;(div.flex-items)*3</code>这个html结构，很简单。<br>两个div，一个父级<code>.flex-box</code>，三个子元素<code>.flex-items</code>。</p>
+<p>给<code>.flex-box</code>元素设置<code>display</code>属性为<code>flex</code>或<code>inline-flex</code>即可把<code>.flex-box</code>设置为伸缩容器。</p>
+<p>给<code>.flex-item</code>元素设置<code>box-flex:1</code>则表示这个元素所占的宽度，而且是流体。</p>
+<p>以上，是不是非常简单啊。其实常用到的也差不多是这个样子了。无非还有一些以下的功能。<br><a id="more"></a></p>
+<h2 id="2">2</h2><p>如果三个子元素需要<strong>两端对齐</strong>且平均分布在<code>.flex-box</code>内，则需要对<code>.flex-box</code>设置<code>justify-content</code>的属性为<code>space-between</code>。</p>
+<p><code>justify-content</code>主轴方向内容对齐方式</p>
+<blockquote>
+<p>flex-srart（默认）：与主轴起始方向对齐。<br>flex-end：向主轴终点方向对齐。<br>center：向主轴中点方向对齐。<br>space-between：起始位置向主轴起始方向对齐，终点位置向主轴终点方向对齐，其余位置向主轴中点方向对齐。<br>space-around：与space-between类似，只是起始位置和终点位置保留一半空白。</p>
+</blockquote>
+<p>用一些喜闻乐见的图片来解释上面的值。<br><img src="!--￼2--&gt;/img/css3-flex-sample-demo/justify-content.png" alt="justify-content"></p>
+<h2 id="sample_demo">sample demo</h2><p><img src="!--￼3--&gt;/img/css3-flex-sample-demo/sample-demo.jpg" alt="smaple-demo"></p>
+<h4 id="代码">代码</h4><p>html<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"bdsharebuttonbox "</span> <span class="attribute">data-tag</span>=<span class="value">"jia-share"</span> <span class="attribute">data-bd-bind</span>=<span class="value">""</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">a</span> <span class="attribute">class</span>=<span class="value">"bds_weixin"</span> <span class="attribute">data-cmd</span>=<span class="value">"weixin"</span> <span class="attribute">href</span>=<span class="value">"#"</span> <span class="attribute">title</span>=<span class="value">"分享到微信"</span>&gt;</span><span class="tag">&lt;/<span class="title">a</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">a</span> <span class="attribute">class</span>=<span class="value">"bds_tsina "</span> <span class="attribute">data-cmd</span>=<span class="value">"tsina"</span> <span class="attribute">title</span>=<span class="value">"分享到新浪微博"</span>&gt;</span><span class="tag">&lt;/<span class="title">a</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">a</span> <span class="attribute">class</span>=<span class="value">"bds_qzone"</span> <span class="attribute">data-cmd</span>=<span class="value">"qzone"</span> <span class="attribute">title</span>=<span class="value">"分享到QQ空间"</span>&gt;</span><span class="tag">&lt;/<span class="title">a</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">a</span> <span class="attribute">class</span>=<span class="value">"bds_tqq"</span> <span class="attribute">data-cmd</span>=<span class="value">"tqq"</span> <span class="attribute">title</span>=<span class="value">"分享到腾讯微博"</span>&gt;</span><span class="tag">&lt;/<span class="title">a</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">a</span> <span class="attribute">class</span>=<span class="value">"bds_qq"</span> <span class="attribute">data-cmd</span>=<span class="value">"qq"</span> <span class="attribute">title</span>=<span class="value">"分享到QQ收藏"</span>&gt;</span><span class="tag">&lt;/<span class="title">a</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">a</span> <span class="attribute">class</span>=<span class="value">"bds_renren "</span> <span class="attribute">data-cmd</span>=<span class="value">"renren"</span> <span class="attribute">title</span>=<span class="value">"分享到人人网"</span>&gt;</span><span class="tag">&lt;/<span class="title">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>css<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.bdsharebuttonbox</span> <span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">background</span>:<span class="value"> <span class="hexcolor">#fff</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">10px</span> <span class="number">0</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">display</span>:<span class="value"> -webkit-flex</span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">display</span>:<span class="value"> -ms-flexbox</span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">display</span>:<span class="value"> flex</span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">-webkit-justify-content</span>:<span class="value"> space-between</span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">-ms-flex-pack</span>:<span class="value"> justify</span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">justify-content</span>:<span class="value"> space-between</span></span>;</span><br><span class="line">&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="class">.bdsharebuttonbox</span> <span class="tag">a</span> <span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">background-repeat</span>:<span class="value"> no-repeat</span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">cursor</span>:<span class="value"> pointer</span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">margin</span>:<span class="value"> <span class="number">6px</span> <span class="number">6px</span> <span class="number">6px</span> <span class="number">0</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">overflow</span>:<span class="value"> hidden</span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">color</span>:<span class="value"> <span class="hexcolor">#3a8ceb</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">90px</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">90px</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">-webkit-box-flex</span>:<span class="value"> <span class="number">1</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">-moz-box-flex</span>:<span class="value"> <span class="number">1</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">box-flex</span>:<span class="value"> <span class="number">1</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">-webkit-box-direction</span>:<span class="value"> normal</span></span>;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure></p>
+<p>codepen</p>
+<p></p><p data-height="268" data-theme-id="4818" data-slug-hash="vEGOGj" data-default-tab="result" data-user="jcpplus" class="codepen">See the Pen <a href="http://codepen.io/jcpplus/pen/vEGOGj/" target="_blank" rel="external">css3-flex-sample-demo</a> by jcpplus (<a href="http://codepen.io/jcpplus" target="_blank" rel="external">@jcpplus</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+
+
+
+]]></content>
+    <summary type="html">
+    <![CDATA[是时候把flex这个属性好好的研究一下了。]]>
+    
+    </summary>
+    
+      <category term="css3" scheme="http://jcpplus.github.io/tags/css3/"/>
+    
+      <category term="flex" scheme="http://jcpplus.github.io/categories/flex/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[test]]></title>
+    <link href="http://jcpplus.github.io/2014/12/11/test/"/>
+    <id>http://jcpplus.github.io/2014/12/11/test/</id>
+    <published>2014-12-11T01:17:17.000Z</published>
+    <updated>2015-06-17T16:43:27.780Z</updated>
+    <content type="html"><![CDATA[<p><img src="!--￼0--&gt;/img/2014-01-01/loading.gif" alt="imgdemo"></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[img loading in markdown]]>
+    
+    </summary>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[asynchronous]]></title>
+    <link href="http://jcpplus.github.io/2014/12/10/asynchronous/"/>
+    <id>http://jcpplus.github.io/2014/12/10/asynchronous/</id>
+    <published>2014-12-10T05:46:05.000Z</published>
+    <updated>2015-05-30T10:29:12.841Z</updated>
+    <content type="html"><![CDATA[<h2 id="Asynchronous">Asynchronous</h2><p>Asynchronous 的意思是异步。什么是异步呢？就是不在第一时间告知调用者结果，告诉他我已经收到这个任务了，我会处理，处理完毕后通知你结果，如果你不是等不到结果就无法进行下去的话，你完全可以先干别的事情。<br>嗯，好像我描述的比较拉杂。还是例子：你去咖啡厅点一杯咖啡，服务员告诉你现磨咖啡需要15分钟才可做好，那么在咖啡做好之前，你不可能盯着服务员或者咖啡师15分钟，你肯定会干点别的，比如说玩手机上一下网，或者跟你女朋友商量下去看电影什么的，总之你不会傻乎乎等着的。等到咖啡做好了，服务员会记得给你端过来的。这就是异步过程，你的大脑不必为一个漫长的过程卡住，可以继续其他的事情。<br>…<br>异步已经在现在的各种编程领域有了很广泛的应用，例如 Ajax 技术，就是一种异步的手段，在浏览器和服务器交互的时候，完全不影响你在网页上的其他操作。</p>
+<p>异步在各种编程语言和框架中都有相应的支持，这里简单介绍一下 Javascript 的异步支持。熟悉它的人的人请无视这段。它使用回调的方式支持异步，大致意思是，A 交代给 B 一个任务，并且告知 B 任务完成后继续执行哪段程序（往往包装成一个匿名function），B执行完任务后，执行这个匿名的 function，这样来完成异步过程。在 Javascript 中大量的使用这种回调的异步方案，已经不再局限于对一个缓慢的过程了，可以对几乎所有的过程都采用异步处理。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[什么是异步]]>
+    
+    </summary>
+    
+      <category term="javascript" scheme="http://jcpplus.github.io/categories/javascript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[在Webstorm中执行sass编译]]></title>
+    <link href="http://jcpplus.github.io/2014/11/01/2014-11-01-webstorm-8-with-scss-file-watchers/"/>
+    <id>http://jcpplus.github.io/2014/11/01/2014-11-01-webstorm-8-with-scss-file-watchers/</id>
+    <published>2014-10-31T16:00:00.000Z</published>
+    <updated>2015-05-30T10:29:12.841Z</updated>
+    <content type="html"><![CDATA[<h4 id="Webstorm_大法好！">Webstorm 大法好！</h4><p>这个编辑器好强大哈哈。</p>
+<p>知乎上有一篇专门说这个编辑器的好！只给<a href="http://www.zhihu.com/question/20936155" target="_blank" rel="external">链接</a></p>
+<a id="more"></a>
+<p><em>本篇假设机器环境已经安装好了ruby环境，sass环境等</em></p>
+<h4 id="官方文档">官方文档</h4><p><a href="http://www.jetbrains.com/webstorm/webhelp/transpiling-sass-less-and-scss-to-css.html" target="_blank" rel="external">官方文档</a></p>
+<h4 id="目的">目的</h4><pre><code>myproject/
+|<span class="string">
+</span>|<span class="string">-----assets/
+</span>|<span class="string">           </span>|<span class="string">-scss/
+</span>|<span class="string">           </span>|<span class="string">-----</span>|<span class="string">-file.scss 
+</span>|<span class="string">           </span>|<span class="string">-style/
+</span>|<span class="string">           </span>|<span class="string">-----</span>|<span class="string">-file.css</span>
+</code></pre><p>以上就是file.scss文件要输出到style目录下的file.css</p>
+<h4 id="怎么操作">怎么操作</h4><p>1： File &gt;&gt;  settings &gt;&gt; File Watchers， 增加scss的watcher</p>
+<p>2： 主要更改这里</p>
+<pre><code>Arguments: --no-cache --<span class="keyword">update</span> <span class="variable">$FileName</span>$:<span class="variable">$ProjectFileDir</span>$\app\assets\style\<span class="variable">$FileNameWithoutExtension</span>$.css
+Working directory: <span class="variable">$FileDir</span>$
+Output paths <span class="keyword">to</span> refresh: <span class="variable">$ProjectFileDir</span>$\app\assets\style\<span class="variable">$FileNameWithoutExtension</span>$.css    
+</code></pre><p>3：<br>其中的 <code>\app\assets\style\</code> 得根据自己项目的实际情况更改目录</p>
+<h4 id="结尾">结尾</h4><p>截图好麻烦啊</p>
+<hr>
+<p>update 2014.11.12</p>
+<h4 id="补充">补充</h4><p>1： 这个参数可为空。</p>
+<p>2： 输出样式支持scss输出参数。 在<code>Arguments</code>项的 –no-cache 之后写 <code>--style compressed</code></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[正好碰到这个问题，gg一通之后觉得还是要随手一记吧。]]>
+    
+    </summary>
+    
+      <category term="技术" scheme="http://jcpplus.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Javascript 内置函数]]></title>
+    <link href="http://jcpplus.github.io/2014/10/21/2014-10-21-javascript-function/"/>
+    <id>http://jcpplus.github.io/2014/10/21/2014-10-21-javascript-function/</id>
+    <published>2014-10-20T16:00:00.000Z</published>
+    <updated>2015-05-30T10:29:12.841Z</updated>
+    <content type="html"><![CDATA[<h3 id="javascript数字验证方法">javascript数字验证方法</h3><h4 id="Number()">Number()</h4><p>将括号内的变量的值转换为数字。</p>
+<a id="more"></a>
+<h4 id="isNaN(n)">isNaN(n)</h4><p>检验<em>n</em>是否为数字（浮点或整型），如果不是则返回true。</p>
+<h4 id="parseFloat(n)">parseFloat(n)</h4><p>将<em>n</em>转换为浮点数。它从左向右依次解析字符串中的每个字符，直至在数字中无法使用的字母，然后停止，将字符串转换为数字。如果第一个字符在数字中就无法使用，结果就是NaN，表示非数字（Not A Number）。</p>
+<h4 id="parseInt(n)">parseInt(n)</h4><p>通过直接把小数部分移除而不考虑四舍五入，将<em>n</em>转化为整数。任何传到这个函数当中的非数字字符都会被丢弃掉。如果第一个字符不是+，-或数字，结果就是NaN。</p>
+<h3 id="code_sample">code sample</h3><pre><code><span class="function"><span class="keyword">function</span> <span class="title">isNubmer</span>(<span class="params"></span>)</span>{
+    <span class="keyword">var</span> total = <span class="built_in">document</span>.getElementById(<span class="string">'total'</span>);
+    <span class="keyword">if</span>(!total){    <span class="keyword">return</span> <span class="literal">false</span>;    }
+    total = total.value;
+    <span class="keyword">if</span>(total.length === <span class="number">0</span>){
+        alert(<span class="string">'Field is empty!'</span>);
+        <span class="keyword">return</span> <span class="literal">false</span>;
+    }
+    <span class="keyword">if</span>(<span class="built_in">isNaN</span>(total)){
+        alert(<span class="string">'Please input a number!'</span>);
+        <span class="keyword">return</span> <span class="literal">false</span>;
+    }
+    <span class="keyword">return</span> <span class="literal">true</span>;
+}
+</code></pre>]]></content>
+    <summary type="html">
+    <![CDATA[项目中用到的，正好看书的时候碰到了，记录一下。]]>
+    
+    </summary>
+    
+      <category term="技术" scheme="http://jcpplus.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Mac 常用资源]]></title>
+    <link href="http://jcpplus.github.io/2014/08/03/2014-08-03-genereal-mac-resources/"/>
+    <id>http://jcpplus.github.io/2014/08/03/2014-08-03-genereal-mac-resources/</id>
+    <published>2014-08-02T16:00:00.000Z</published>
+    <updated>2015-05-30T10:29:12.826Z</updated>
+    <content type="html"><![CDATA[<h3 id="开启关闭dashboard">开启关闭dashboard</h3><p>关闭</p>
+<pre><code>defaults write com<span class="class">.apple</span><span class="class">.dashboard</span> mcx-disabled -boolean YES
+killall Dock
+</code></pre><a id="more"></a>
+<p>开启</p>
+<pre><code>defaults write com<span class="class">.apple</span><span class="class">.dashboard</span> mcx-disabled -boolean NO
+killall Dock
+</code></pre><h3 id="设置iterm中option为alt(meta)键">设置iterm中option为alt(meta)键</h3><p><img src="http://yansu-uploads.stor.sinaapp.com/original/a7604cae82872d62bdc6122da7f38037.png" alt="option-to-meta"></p>
+<h3 id="删除dropbox冲突文件">删除dropbox冲突文件</h3><pre><code><span class="title">find</span> . -<span class="typedef"><span class="keyword">type</span> f -name "* conflicted *" -exec rm -f <span class="container">{}</span> \;</span>
+</code></pre>]]></content>
+    <summary type="html">
+    <![CDATA[<h3 id="开启关闭dashboard">开启关闭dashboard</h3><p>关闭</p>
+<pre><code>defaults write com<span class="class">.apple</span><span class="class">.dashboard</span> mcx-disabled -boolean YES
+killall Dock
+</code></pre>]]>
+    
+    </summary>
+    
+      <category term="Mac" scheme="http://jcpplus.github.io/tags/Mac/"/>
+    
+      <category term="资源" scheme="http://jcpplus.github.io/categories/%E8%B5%84%E6%BA%90/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[MySQL常用资源]]></title>
+    <link href="http://jcpplus.github.io/2014/05/11/2014-05-11-general-mysql-resources/"/>
+    <id>http://jcpplus.github.io/2014/05/11/2014-05-11-general-mysql-resources/</id>
+    <published>2014-05-10T16:00:00.000Z</published>
+    <updated>2015-05-30T10:29:12.826Z</updated>
+    <content type="html"><![CDATA[<h2 id="常用命令">常用命令</h2><h3 id="登录数据库">登录数据库</h3><pre><code><span class="title">mysql</span> -h localhost -uroot -p
+</code></pre><a id="more"></a>
+<h3 id="导出数据库">导出数据库</h3><pre><code>mysqldump -uroot -p <span class="keyword">db</span> &gt; <span class="keyword">db</span>.sql
+</code></pre><h3 id="导入数据库">导入数据库</h3><pre><code>mysql -uroot -<span class="tag">p</span> db &lt; db<span class="class">.sql</span>
+<span class="comment">// or</span>
+mysql -uroot -<span class="tag">p</span> db -e <span class="string">"source /path/to/db.sql"</span>
+</code></pre><h3 id="开启远程登录">开启远程登录</h3><pre><code><span class="operator"><span class="keyword">grant</span> all <span class="keyword">privileges</span> <span class="keyword">on</span> ss.* <span class="keyword">to</span> <span class="string">'root'</span>@<span class="string">'%'</span> indentified <span class="keyword">by</span> <span class="string">'passoword'</span> <span class="keyword">with</span> <span class="keyword">grant</span> <span class="keyword">option</span>;</span>
+// or 
+<span class="operator"><span class="keyword">update</span> <span class="keyword">user</span> <span class="keyword">set</span> Host=<span class="string">"%"</span> <span class="keyword">and</span> <span class="keyword">User</span>=<span class="string">"root"</span>
+// 注意%是不包含localhost的
+<span class="keyword">flush</span> <span class="keyword">privileges</span>;</span>
+</code></pre><h3 id="创建用户">创建用户</h3><pre><code><span class="operator"><span class="keyword">CREATE</span> <span class="keyword">USER</span> <span class="string">'test'</span>@<span class="string">'localhost'</span> <span class="keyword">IDENTIFIED</span> <span class="keyword">BY</span> <span class="string">'password'</span>;</span>
+</code></pre><h3 id="创建表">创建表</h3><pre><code><span class="operator"><span class="keyword">CREATE</span> <span class="keyword">SCHEMA</span> testdb <span class="keyword">DEFAULT</span> <span class="built_in">CHARACTER</span> <span class="keyword">SET</span> utf8 <span class="keyword">COLLATE</span> utf8_unicode_ci;</span>
+</code></pre><h3 id="赋予数据库权限">赋予数据库权限</h3><pre><code><span class="operator"><span class="keyword">GRANT</span> ALL <span class="keyword">ON</span> testdb.* <span class="keyword">TO</span> <span class="string">'test'</span>@<span class="string">'localhost'</span>;</span>
+</code></pre>]]></content>
+    <summary type="html">
+    <![CDATA[<h2 id="常用命令">常用命令</h2><h3 id="登录数据库">登录数据库</h3><pre><code><span class="title">mysql</span> -h localhost -uroot -p
+</code></pre>]]>
+    
+    </summary>
+    
+      <category term="MySQL" scheme="http://jcpplus.github.io/tags/MySQL/"/>
+    
+      <category term="资源" scheme="http://jcpplus.github.io/categories/%E8%B5%84%E6%BA%90/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[移动平台WEB前端开发技巧汇总]]></title>
+    <link href="http://jcpplus.github.io/2014/05/09/2014-05-09-Mobile-Web-development-tips/"/>
+    <id>http://jcpplus.github.io/2014/05/09/2014-05-09-Mobile-Web-development-tips/</id>
+    <published>2014-05-08T16:00:00.000Z</published>
+    <updated>2015-05-30T10:29:12.826Z</updated>
+    <content type="html"><![CDATA[<blockquote>
+<p>原名《移动平台3G手机网站前端开发布局技巧汇总》，由武方博整理的，让我们了解下移动设备上的WEB站点开发的基础知识，多些时间和精力去优化其他细节，我这里对原文的标签格式做了细微的调整，阅读查看起来明晰些，<a href="http://uecss.com/mobile-platform-web-front-end-development-skills-summary.html" target="_blank" rel="external">原文如下</a>：</p>
+</blockquote>
+<p>－－－－－－－－－－－华丽的分割线－－－－－－－－－－－－－<br><a id="more"></a></p>
+<h2 id="开始">开始</h2><p>您或许正在或准备参与一个WepApp项目，您或许正在Google搜索mobile development相关的文章，您或许是一名专业的WEB前端工程师，您或许想学习Mobile前端开发方面的技术，如果您被我说中了，呵呵那么这篇文章将为您带来意想不到的惊喜！当您看到这篇文章时，哥已经默认认为您是一名资深的WEB前端工程师，如果您不是，可能您会遇见许多不理解或听不懂的专业术语或前端技术（包括WEB、Mobile）。但是这没有关系，给自己一点信心吧，用心的阅读下去……</p>
+<p>自Iphone和Android这两个牛逼的手机操作系统发布以来，在互联网界从此就多了一个新的名词-<code>WebApp</code><br>(意为基于WEB形式的应用程序，运行在高端的移动终端设备)。</p>
+<p>开发者们都知道在高端智能手机系统中有两种应用程序：一种是基于本地（操作系统）运行的APP；一种是基于高端机的浏览器运行的WebApp，本文将主要讲解后者。</p>
+<p>##WebApp与Native App有何区别呢？</p>
+<p>###Native App：</p>
+<blockquote>
+<p>开发成本非常大 一般使用的开发语言为JAVA、C++、Objective-C</p>
+<p>更新体验较差、同时也比较麻烦<br>每一次发布新的版本，都需要做版本打包，且需要用户手动更新（有些应用程序即使不需要用户手动更新，但是也需要有一个恶心的提示）。</p>
+<p>非常酷 因为native app可以调用IOS中的UI控件以UI方法，它可以实现WebApp无法实现的一些非常酷的交互效果</p>
+<p>Native app是被Apple认可的 Native app可以被Apple认可为一款可信任的独立软件，可以放在Apple<br>Stroe出售，但是Web app却不行。</p>
+</blockquote>
+<p>###Web App：</p>
+<blockquote>
+<p>开发成本较低 使用web开发技术就可以轻松的完成web app的开发</p>
+<p>升级较简单 升级不需要通知用户，在服务端更新文件即可，用户完全没有感觉</p>
+<p>维护比较轻松 和一般的web一样，维护比较简单，它其实就是一个站点</p>
+<p>Webapp说白了就是一个针对Iphone、Android优化后的web站点，它使用的技术无非就是HTML或HTML5、CSS3、JavaScript，服务端技术JAVA、PHP、ASP。</p>
+</blockquote>
+<p>当然，因为这些高端智能手机（Iphone、Android）的内置浏览器都是基于webkit内核的，所以在开发WEBAPP时，多数都是使用HTML5和CSS3技术做UI布局。当使用HTML5和CSS3l做UI时，若还是遵循着一般web开发中使用HTML4和CSS2那样的开发方式的话，这也就失去了WEBAPP的本质意义了，且有些效果也无法实现的，所以在此又回到了我们的主题–webapp的<strong>布局方式和技术</strong>。</p>
+<p>####1、meta标签</p>
+<p>首先我们来看看webkit内核中的一些私有的meta标签，这些meta标签在开发webapp时起到非常重要的作用<br><figure class="highlight"><figcaption><span>content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport"</span><a href="/>```">link</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#10;```&#60;meta content=&#34;yes&#34; name=&#34;apple-mobile-web-app-capable&#34; /&#62;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight"><figcaption><span>content="black" name="apple-mobile-web-app-status-bar-style"</span><a href="/>```">link</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#10;```&#60;meta content=&#34;telephone=no&#34; name=&#34;format-detection&#34; /&#62;</span><br></pre></td></tr></table></figure>
+<p>第一个meta标签表示：强制让文档的宽度与设备的宽度保持1:1，并且文档最大的宽度比例是1.0，且不允许用户点击屏幕放大浏览；</p>
+<p>第二个meta标签是iphone设备中的safari私有meta标签，它表示：允许全屏模式浏览；</p>
+<p>第三个meta标签也是iphone的私有标签，它指定的iphone中safari顶端的状态条的样式；</p>
+<p>第四个meta标签表示：告诉设备忽略将页面中的数字识别为电话号码；</p>
+<p>####2、HTML5标签的使用<br>在开始编写webapp时，建议前端工程师使用HTML5，而放弃HTML4，因为HTML5可以实现一些HTML4中无法实现的丰富的WEB应用程序的体验，可以减少开发者很多的工作量，当然了你决定使用HTML5前，一定要对此非常熟悉，要知道HTML5的新标签的作用。比如定义一块内容或文章区域可使用section标签，定义导航条或选项卡可以直接使用nav标签等等。</p>
+<p>####3、放弃CSS float属性<br>在项目开发过程中可以会遇到内容排列排列显示的布局，假如你遇见这样的视觉稿，哥建议你放弃</p>
+<p><code>float</code>可以直接使用<code>display:block;</code></p>
+<p>####4、利用CSS3边框背景属性<br>这个按钮有圆角效果，有内发光效果还有高光效果，这样的按钮使用CSS3写是无法写出来的，当然圆角可以使用CSS3来写，但高光和内发光却无法使用CSS3编写，这个时候你不妨使用<code>-webkit-border-image</code>来定义这个按钮的样式。</p>
+<p>####5、块级化a标签<br>请保证将每条数据都放在一个a标签中，为何这样做？因为在触控手机上，为提升用户体验，尽可能的保证用户的可点击区域较大。</p>
+<p>####6、自适应布局模式<br>在编写CSS时，我不建议前端工程师把容器（不管是外层容器还是内层）的宽度定死。为达到适配各种手持设备，我建议前端工程师使用自适应布局模式（支付宝采用了自适应布局模式），因为这样做可以让你的页面在ipad、itouch、ipod、iphone、android、web safarik、chrome都能够正常的显示，你无需再次考虑设备的分辨率。</p>
+<p>####7、学会使用webkit-box<br>上一节，我们说过自适应布局模式，有些同学可能会问：如何在移动设备上做到完全自适应呢？很感谢webkit为display属性提供了一个<code>webkit-box</code>的值，它可以帮助前端工程师做到盒子模型灵活控制。</p>
+<p>####8、如何去除Android平台中对邮箱地址的识别<br>看过iOS webapp API的同学都知道iOS提供了一个meta标签:用于禁用iOS对页面中电话号码的自动识别。在iOS中是不自动识别邮件地址的，但在Android平台，它会自动检测邮件地址，当用户touch到这个邮件地址时，Android会弹出一个框提示用户发送邮件，如果你不想Android自动识别页面中的邮件地址，你不妨加上这样一句meta标签在head中<br><code>&lt;meta content=&quot;email=no&quot; name=&quot;format-detection&quot; /&gt;</code></p>
+<p>####9、如何去除iOS和Android中的输入URL的控件条<br>你的老板或者PD或者交互设计师可能会要求你：能否让我们的webapp更加像nativeapp，我不想让用户看见那个输入url的控件条？<br>答案是可以做到的。我们可以利用一句简单的javascript代码来实现这个效果</p>
+<blockquote>
+<p>setTimeout(scrollTo,0,0,0);</p>
+</blockquote>
+<p>请注意，这句代码必须放在<code>window.onload</code>里才能够正常的工作，而且你的当前文档的内容高度必须是高于窗口的高度时，这句代码才能有效的执行。</p>
+<p>####10、如何禁止用户旋转设备<br>我曾经也想禁止用户旋转设备，也想实现像某些客户端那样：只能在肖像模式或景观模式下才能正常运行。但现在我可以很负责任的告诉你：别想了!在移动版的webkit中做不到！</p>
+<p>至少Apple webapp API已经说到了：我们为了让用户在safari中正常的浏览网页，我们必须保证用户的设备处于任何一个方位时，safari都能够正常的显示网页内容（也就是自适应），所以我们禁止开发者阻止浏览器的<code>orientationchange</code>事件，看来苹果公司的出发点是正确的，苹果确实不是一般的苹果。iOS已经禁止开发者阻止<code>orientationchange</code>事件，那Android呢？对不起，我没有找到任何资料说Android禁止开发者阻止浏览器<code>orientationchange</code>事件，但是在Android平台，确实也是阻止不了的。</p>
+<p>####11、如何检测用户是通过主屏启动你的webapp<br>看过Apple webapp API的同学都知道iOS为safari提供了一个将当前页面添加主屏的功能，按下iphone ipod ipod touch底部工具中的小加号，或者ipad顶部左侧的小加号，就可以将当前的页面添加到设备的主屏，在设备的主屏会自动增加一个当前页面的启动图标，点击该启动图标就可以快速、便捷的启动你的webapp。</p>
+<p>从主屏启动的webapp和浏览器访问你的webapp最大的区别是它清除了浏览器上方和下方的工具条，这样你的webapp就更加像是nativeapp了，还有一个区别是window对像中的navigator子对象的一个<code>standalone</code>属性。<br>iOS中浏览器直接访问站点时，navigator.standalone为false,从主屏启动webapp时，navigator.standalone为true，我们可以通过navigator.standalone这个属性获知用户当前是否是从主屏访问我们的webapp的。</p>
+<p>在Android中从来没有添加到主屏这回事！</p>
+<p>####12、如何关闭iOS中键盘自动大写<br>我们知道在iOS中，当虚拟键盘弹出时，默认情况下键盘是开启首字母大写的功能的，根据某些业务场景，可能我们需要关闭这个功能，移动版本webkit为input元素提供了<code>autocapitalize</code>,通过指定<code>autocapitalize=&quot;off&quot;</code>来关闭键盘默认首字母大写。</p>
+<p>####13、iOS中如何彻底禁止用户在新窗口打开页面<br>有时我们可能需要禁止用户在新窗口打开页面，我们可以使用a标签的<code>target=&quot;_self&quot;</code>来指定用户在新窗口打开，或者<code>target</code>属性保持空，但是你会发现iOS的用户在这个链接的上方长按3秒钟后，iOS会弹出一个列表按钮，用户通过这些按钮仍然可以在新窗口打开页面，这样的话，开发者指定的target属性就失效了，但是可以通过指定当前元素的<code>-webkit-touch-callout</code>样式属性为none来禁止iOS弹出这些按钮。</p>
+<p>这个技巧仅适用iOS对于Android平台则无效。</p>
+<p>####14、iOS中如何禁止用户保存图片\复制图片<br>我们在第13条技巧中提到元素的<code>-webkit-touch-callout</code>属性，同样为一个img标签指定<code>-webkit-touch-callout:none</code><br>，这样用户就无法保存\复制你的图片了。</p>
+<p>####15、iOS中如何禁止用户选中文字<br>我们通过指定文字标签的<code>-webkit-user-select:none</code>便可以禁止iOS用户选中文字。</p>
+<p>####16、iOS中如何获取滚动条的值<br>桌面浏览器中想要获取滚动条的值是通过<code>document.scrollTop</code>和<code>document.scrollLeft</code>得到的，但在iOS中你会发现这两个属性是未定义的，为什么呢？因为在iOS中没有滚动条的概念，在Android中通过这两个属性可以正常获取到滚动条的值，那么在iOS中我们该如何获取滚动条的值呢？</p>
+<p>通过<code>window.scrollY</code>和<code>window.scrollX</code>我们可以得到当前窗口的y轴和x轴滚动条的值。</p>
+<p>####17、如何解决盒子边框溢出<br>当你指定了一个块级元素时，并且为其定义了边框，设置了其宽度为100％。在移动设备开发过程中我们通常会对文本框定义为宽度100％，将其定义为块级元素以实现全屏自适应的样式，但此时你会发现，该元素的边框(左右)各1个像素会溢了文档，导致出现横向滚动条，为解决这一问题，我们可以为其添加一个特殊的样式<code>-webkit-box-sizing:border-box;</code>用来指定该盒子的大小包括边框的宽度。</p>
+<p><del>###18、如何解决Android 2.0以下平台中圆角的问题<br>如果大家够细心的话，在做wap站点开发时，大家应该会发现android2.0以下的平台中问题特别的多，比如说边框圆角这个问题吧。在对一个元素定义圆角时，为完全兼容android 2.0以下的平台，我们必须要按照以下技巧来定义边框圆角：-webkit<br>这个前缀必须要加上（在iOS中，你可以不加，但android中一定要加）；如果对针对边框做样式定义，比如<code>border:1px solid #000;</code>那么-webkit-border-radius这属性必须要出现在border属性后. 假如我们有这样的视觉元素，左上角和右上角是圆角时，我们必须要先定义全局的(4个角的圆角值)-webkit-border-radius:5px;然后再依次的覆盖左下角和右下角，-webkit-border-bottom-left-radius:0;-webkit-border-bottom-right-border:0;<br>否则在android 2.0以下的平台中将全部显示直角，还有记住！-webkit这个前缀一定要加上！<del></del></del></p>
+<p>####19、如何解决android平台中页面无法自适应<br>虽然你的html和css都是完全自适应的，但有一天如果你发现你的页面在android中显示的并不是自适应的时候，首先请你确认你的head标签中是否包含以下meta标签：</p>
+<p><code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0;&quot; /&gt;</code></p>
+<p>如果有的话，那请你再仔细的看清楚有没有这个属性的值<code>width=device-width</code>，如果没有请立即加上吧！</p>
+<p>####20、如何解决iOS 4.3版本中safari对页面中5位数字的自动识别和自动添加样式<br>新的iOS系统也就是4.3版本，升级后对safari造成了一个bug：即使你添加了如下的meta标签，safari仍然会对页面中的5位连续的数字进行自动识别，并且将其重新渲染样式，也就是说你的css对该标签是无效的。</p>
+<figure class="highlight"><figcaption><span>name="format-detection" content="telphone=no"</span><a href="/>```">link</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#10;&#25105;&#20204;&#21487;&#20197;&#29992;&#19968;&#20010;&#27604;&#36739;&#40844;&#40842;&#30340;&#21150;&#27861;&#26469;&#35299;&#20915;&#12290;&#27604;&#22914;&#35828;&#25903;&#20184;&#23453;wap&#31449;&#28857;&#20013;&#26174;&#31034;&#37329;&#39069;&#30340;&#26631;&#31614;&#65292;&#25105;&#20204;&#37117;&#20570;&#20102;&#22914;&#19979;&#25913;&#20889;&#65306;&#10;&#10;```&#60;button class=&#34;t-balance&#34; style=&#34;background:none;padding:0;border:0;&#34;&#62;95009.00&#60;/button&#62;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>Written with <a href="https://stackedit.io/" target="_blank" rel="external">StackEdit</a>.</p>
+</blockquote>
+]]></content>
+    <summary type="html">
+    <![CDATA[移动平台WEB前端开发技艺汇总-转载]]>
+    
+    </summary>
+    
+      <category term="mobile" scheme="http://jcpplus.github.io/tags/mobile/"/>
+    
+      <category term="技术" scheme="http://jcpplus.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[我们得比自己更努力]]></title>
+    <link href="http://jcpplus.github.io/2014/04/15/2014-04-15-we-should-be-better-than-us/"/>
+    <id>http://jcpplus.github.io/2014/04/15/2014-04-15-we-should-be-better-than-us/</id>
+    <published>2014-04-14T16:00:00.000Z</published>
+    <updated>2015-05-30T10:29:12.826Z</updated>
+    <content type="html"><![CDATA[<blockquote>
+<p>选择了与众不同，就要准备好面对自己选择的道路的曲折，以及周围人们的不解。</p>
+</blockquote>
+<p>我们的家庭乃至这个社会，都已经为我们设计好了一条道路。</p>
+<a id="more"></a>
+<p>如果你听从父母的建议，或者接受社会舆论的引导，</p>
+<p>那么你只需要埋头把事情做好，即可过上大家认为不错的日子。</p>
+<p>这条路是大家踩出来的，有方向有同伴，走起来不会太累，但是路途的风景确大同小异。</p>
+<p>有一部分人天生就不喜欢条条框框，以变化为美，以差异为美，那么我们是同一类人。</p>
+<p>我们希望自己去探索生命的意义，我们经常问自己为什么要这么做，</p>
+<p>我们时常在思考，这个世界是不是可以更好。</p>
+<p>但是，选择了与众不同，就要准备好面对自己选择的道路的曲折，以及周围人们的不解。</p>
+<p>我们都在荆棘中探索，希望找到一个属于自己的世外桃源。</p>
+<p>有些人会不断的来打听我们的状况然后提出一些他们认为对的意见，这些人都是好意，</p>
+<p>但是他们却不断在影响我们的决心。</p>
+<p>也许你还在路途中，也许你已经找到一个归属，</p>
+<p>让我们坚持下去的，从来不是别人的看法，</p>
+<p>而是对自己十足的信心。</p>
+<p>差异和个性从来不是我们的最终目标，</p>
+<p>我们只为不断超越和完善自己，因此我们得比自己更努力。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<blockquote>
+<p>选择了与众不同，就要准备好面对自己选择的道路的曲折，以及周围人们的不解。</p>
+</blockquote>
+<p>我们的家庭乃至这个社会，都已经为我们设计好了一条道路。</p>]]>
+    
+    </summary>
+    
+      <category term="生活" scheme="http://jcpplus.github.io/categories/%E7%94%9F%E6%B4%BB/"/>
+    
+  </entry>
+  
+</feed>
